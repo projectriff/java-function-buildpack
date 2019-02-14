@@ -14,7 +14,7 @@
 
 [buildpack]
 id = "io.projectriff.java"
-name = "riff Java Buildpack"
+name = "Java Function Buildpack"
 version = "0.1.4-BUILD-SNAPSHOT"
 
 [[stacks]]
