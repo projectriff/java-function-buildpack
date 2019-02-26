@@ -18,37 +18,44 @@
 package java
 
 import (
+	"fmt"
+
 	"github.com/buildpack/libbuildpack/buildplan"
 	"github.com/cloudfoundry/jvm-application-buildpack/jvmapplication"
 	"github.com/cloudfoundry/libcfbuildpack/build"
 	"github.com/cloudfoundry/libcfbuildpack/detect"
-	"github.com/projectriff/riff-buildpack/invoker"
-	"github.com/projectriff/riff-buildpack/metadata"
+	"github.com/projectriff/riff-buildpack/function"
 )
 
 type JavaBuildpack struct {
 	name string
 }
 
-func (b *JavaBuildpack) Name() string {
-	return b.name
+func (bp *JavaBuildpack) Name() string {
+	return bp.name
 }
 
-func (b *JavaBuildpack) Detect(detect detect.Detect, metadata metadata.Metadata) (bool, error) {
+func (*JavaBuildpack) Detect(d detect.Detect, m function.Metadata) (*buildplan.BuildPlan, error) {
 	// Try java
-	_, ok := detect.BuildPlan[jvmapplication.Dependency]
-	return ok, nil
+	if _, ok := d.BuildPlan[jvmapplication.Dependency]; !ok {
+		plan := BuildPlanContribution(d, m)
+		return &plan, nil
+	}
+	// didn't detect
+	return nil, nil
 }
 
-func (b *JavaBuildpack) BuildPlan(detect detect.Detect, metadata metadata.Metadata) buildplan.BuildPlan {
-	return BuildPlanContribution(detect, metadata)
+func (*JavaBuildpack) Build(b build.Build) error {
+	invoker, ok, err := NewJavaInvoker(b)
+	if err != nil {
+		return err
+	} else if !ok {
+		return fmt.Errorf("buildpack passed detection but did not know how to actually build")
+	}
+	return invoker.Contribute()
 }
 
-func (b *JavaBuildpack) Invoker(build build.Build) (invoker.Invoker, bool, error) {
-	return NewJavaInvoker(build)
-}
-
-func NewBuildpack() invoker.Buildpack {
+func NewBuildpack() function.Buildpack {
 	return &JavaBuildpack{
 		name: "java",
 	}

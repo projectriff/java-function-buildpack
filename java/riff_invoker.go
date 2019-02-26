@@ -26,7 +26,7 @@ import (
 	"github.com/cloudfoundry/libcfbuildpack/helper"
 	"github.com/cloudfoundry/libcfbuildpack/layers"
 	"github.com/cloudfoundry/openjdk-buildpack/jre"
-	"github.com/projectriff/riff-buildpack/metadata"
+	"github.com/projectriff/riff-buildpack/function"
 )
 
 const (
@@ -102,7 +102,7 @@ func (r RiffJavaInvoker) command(destination string) string {
 }
 
 // BuildPlanContribution returns the BuildPlan with requirements for the invoker
-func BuildPlanContribution(detect detect.Detect, metadata metadata.Metadata) buildplan.BuildPlan {
+func BuildPlanContribution(detect detect.Detect, metadata function.Metadata) buildplan.BuildPlan {
 	j := detect.BuildPlan[jre.Dependency]
 	if j.Metadata == nil {
 		j.Metadata = buildplan.Metadata{}

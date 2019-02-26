@@ -18,11 +18,10 @@ package main
 
 import (
 	"github.com/projectriff/java-function-buildpack/java"
-	"github.com/projectriff/riff-buildpack/invoker"
+	"github.com/projectriff/riff-buildpack/function"
 )
 
 func main() {
 	buildpack := java.NewBuildpack()
-	commands := invoker.NewBuildpackCommands(buildpack)
-	commands.Build()
+	function.Build(buildpack)
 }

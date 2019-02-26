@@ -27,7 +27,7 @@ import (
 	"github.com/cloudfoundry/openjdk-buildpack/jre"
 	. "github.com/onsi/gomega"
 	"github.com/projectriff/java-function-buildpack/java"
-	"github.com/projectriff/riff-buildpack/metadata"
+	"github.com/projectriff/riff-buildpack/function"
 	"github.com/sclevine/spec"
 	"github.com/sclevine/spec/report"
 )
@@ -46,7 +46,7 @@ func TestRiffInvoker(t *testing.T) {
 			})
 
 			it("contains openjdk-jre and riff-invoker-java in build plan", func() {
-				g.Expect(java.BuildPlanContribution(f.Detect, metadata.Metadata{Handler: "test-handler"})).To(Equal(buildplan.BuildPlan{
+				g.Expect(java.BuildPlanContribution(f.Detect, function.Metadata{Handler: "test-handler"})).To(Equal(buildplan.BuildPlan{
 					java.Dependency: buildplan.Dependency{
 						Metadata: buildplan.Metadata{java.Handler: "test-handler"},
 					},
