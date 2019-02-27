@@ -35,14 +35,21 @@ func (bp *JavaBuildpack) Name() string {
 	return bp.name
 }
 
-func (*JavaBuildpack) Detect(d detect.Detect, m function.Metadata) (*buildplan.BuildPlan, error) {
-	// Try java
-	if _, ok := d.BuildPlan[jvmapplication.Dependency]; !ok {
+func (bp *JavaBuildpack) Detect(d detect.Detect, m function.Metadata) (*buildplan.BuildPlan, error) {
+	if detected, err := bp.detect(d, m); err != nil {
+		return nil, err
+	} else if detected {
 		plan := BuildPlanContribution(d, m)
 		return &plan, nil
 	}
 	// didn't detect
 	return nil, nil
+}
+
+func (*JavaBuildpack) detect(d detect.Detect, m function.Metadata) (bool, error) {
+	// Try java
+	_, ok := d.BuildPlan[jvmapplication.Dependency]
+	return ok, nil
 }
 
 func (*JavaBuildpack) Build(b build.Build) error {
