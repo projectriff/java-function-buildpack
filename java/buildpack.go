@@ -28,11 +28,11 @@ import (
 )
 
 type JavaBuildpack struct {
-	name string
+	id string
 }
 
-func (bp *JavaBuildpack) Name() string {
-	return bp.name
+func (bp *JavaBuildpack) Id() string {
+	return bp.id
 }
 
 func (bp *JavaBuildpack) Detect(d detect.Detect, m function.Metadata) (*buildplan.BuildPlan, error) {
@@ -64,6 +64,6 @@ func (*JavaBuildpack) Build(b build.Build) error {
 
 func NewBuildpack() function.Buildpack {
 	return &JavaBuildpack{
-		name: "java",
+		id: "java",
 	}
 }
