@@ -7,7 +7,7 @@ support (and know how to build / run) languages supported by riff.
 
 ## In Plain English
 
-In a nutshell, when combined with the other buildpacks present in the [riff builder](https://github.com/projectriff/riff-buildpack-group) what this means (and especially when dealing with the riff CLI which takes care of the creation of the `riff.toml` file for you):
+In a nutshell, when combined with the other buildpacks present in the [riff builder](https://github.com/projectriff/builder) what this means (and especially when dealing with the riff CLI which takes care of the creation of the `riff.toml` file for you):
 
 - The presence of a `pom.xml` or `build.gradle` file will result in the compilation and execution of a java function, thanks to the [java invoker](https://github.com/projectriff/java-function-invoker)
   1. the `--handler` flag is optional in certain cases, as documented by the java invoker
@@ -51,7 +51,7 @@ make
 
 This will package (with pre-downloaded cache layers) the buildpack in the
 `artifactory/io/projectriff/java/io.projectriff.java/latest` directory. That can be used as a `uri` in a `builder.toml`
-file of a builder (see https://github.com/projectriff/riff-buildpack-group)
+file of a builder (see https://github.com/projectriff/builder)
 
 ## License
 
