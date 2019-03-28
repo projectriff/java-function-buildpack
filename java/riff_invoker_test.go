@@ -27,7 +27,7 @@ import (
 	"github.com/cloudfoundry/openjdk-buildpack/jre"
 	. "github.com/onsi/gomega"
 	"github.com/projectriff/java-function-buildpack/java"
-	"github.com/projectriff/riff-buildpack/function"
+	"github.com/projectriff/libfnbuildpack/function"
 	"github.com/sclevine/spec"
 	"github.com/sclevine/spec/report"
 )

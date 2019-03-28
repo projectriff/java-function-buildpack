@@ -26,7 +26,7 @@ import (
 	"github.com/cloudfoundry/libcfbuildpack/helper"
 	"github.com/cloudfoundry/libcfbuildpack/layers"
 	"github.com/cloudfoundry/openjdk-buildpack/jre"
-	"github.com/projectriff/riff-buildpack/function"
+	"github.com/projectriff/libfnbuildpack/function"
 )
 
 const (

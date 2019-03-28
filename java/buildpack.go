@@ -24,7 +24,7 @@ import (
 	"github.com/cloudfoundry/jvm-application-buildpack/jvmapplication"
 	"github.com/cloudfoundry/libcfbuildpack/build"
 	"github.com/cloudfoundry/libcfbuildpack/detect"
-	"github.com/projectriff/riff-buildpack/function"
+	"github.com/projectriff/libfnbuildpack/function"
 )
 
 type JavaBuildpack struct {

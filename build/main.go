@@ -18,7 +18,7 @@ package main
 
 import (
 	"github.com/projectriff/java-function-buildpack/java"
-	"github.com/projectriff/riff-buildpack/function"
+	"github.com/projectriff/libfnbuildpack/function"
 )
 
 func main() {
