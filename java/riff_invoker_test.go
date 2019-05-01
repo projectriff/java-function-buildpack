@@ -100,8 +100,8 @@ func TestRiffInvoker(t *testing.T) {
 
 				g.Expect(f.Build.Layers).To(test.HaveApplicationMetadata(layers.Metadata{
 					Processes: layers.Processes{
-						layers.Process{Type: "web", Command: command},
 						layers.Process{Type: "function", Command: command},
+						layers.Process{Type: "web", Command: command},
 					},
 				}))
 

@@ -79,8 +79,8 @@ func (r RiffJavaInvoker) Contribute() error {
 
 	return r.layers.WriteApplicationMetadata(layers.Metadata{
 		Processes: layers.Processes{
-			layers.Process{Type: "web", Command: command},
 			layers.Process{Type: "function", Command: command},
+			layers.Process{Type: "web", Command: command},
 		},
 	})
 }
