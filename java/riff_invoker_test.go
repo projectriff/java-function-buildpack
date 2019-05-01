@@ -24,7 +24,7 @@ import (
 	"github.com/buildpack/libbuildpack/buildplan"
 	"github.com/cloudfoundry/libcfbuildpack/layers"
 	"github.com/cloudfoundry/libcfbuildpack/test"
-	"github.com/cloudfoundry/openjdk-buildpack/jre"
+	"github.com/cloudfoundry/openjdk-cnb/jre"
 	. "github.com/onsi/gomega"
 	"github.com/projectriff/java-function-buildpack/java"
 	"github.com/projectriff/libfnbuildpack/function"
@@ -98,7 +98,7 @@ func TestRiffInvoker(t *testing.T) {
 				command := fmt.Sprintf("java -cp %s $JAVA_OPTS org.springframework.boot.loader.JarLauncher",
 					layer.Root)
 
-				g.Expect(f.Build.Layers).To(test.HaveLaunchMetadata(layers.Metadata{
+				g.Expect(f.Build.Layers).To(test.HaveApplicationMetadata(layers.Metadata{
 					Processes: layers.Processes{
 						layers.Process{Type: "web", Command: command},
 						layers.Process{Type: "function", Command: command},

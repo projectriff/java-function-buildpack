@@ -25,7 +25,7 @@ import (
 	"github.com/cloudfoundry/libcfbuildpack/detect"
 	"github.com/cloudfoundry/libcfbuildpack/helper"
 	"github.com/cloudfoundry/libcfbuildpack/layers"
-	"github.com/cloudfoundry/openjdk-buildpack/jre"
+	"github.com/cloudfoundry/openjdk-cnb/jre"
 	"github.com/projectriff/libfnbuildpack/function"
 )
 
@@ -77,7 +77,7 @@ func (r RiffJavaInvoker) Contribute() error {
 
 	command := fmt.Sprintf("java -cp %s $JAVA_OPTS %s", r.invokerLayer.Root, invokerMainClass)
 
-	return r.layers.WriteMetadata(layers.Metadata{
+	return r.layers.WriteApplicationMetadata(layers.Metadata{
 		Processes: layers.Processes{
 			layers.Process{Type: "web", Command: command},
 			layers.Process{Type: "function", Command: command},
