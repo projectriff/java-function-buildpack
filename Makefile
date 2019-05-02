@@ -10,6 +10,7 @@ test:
 
 acceptance:
 	pack create-builder -b acceptance/testdata/builder.toml projectriff/builder
+	docker pull packs/run:0.1.0
 	GO111MODULE=on go test -v -tags=acceptance ./acceptance
 
 artifactory/io/projectriff/java/io.projectriff.java: buildpack.toml $(GO_SOURCES)
