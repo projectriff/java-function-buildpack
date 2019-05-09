@@ -17,6 +17,7 @@
 package java_test
 
 import (
+	"github.com/projectriff/streaming-http-adapter-buildpack/adapter"
 	"testing"
 
 	"github.com/buildpack/libbuildpack/buildplan"
@@ -59,13 +60,22 @@ func TestDetect(t *testing.T) {
 		})
 
 		it("fails by default", func() {
+			f.AddBuildPlan(adapter.ProxyAvailable, buildplan.Dependency{})
 			plan, err := b.Detect(f.Detect, m)
 
 			g.Expect(err).To(BeNil())
 			g.Expect(plan).To(BeNil())
 		})
 
+		it("errors if http streaming adapter missing", func() {
+			plan, err := b.Detect(f.Detect, m)
+
+			g.Expect(err).To(MatchError("missing the http streaming adapter buildpack"))
+			g.Expect(plan).To(BeNil())
+		})
+
 		it("passes if the JVM app BP applied", func() {
+			f.AddBuildPlan(adapter.ProxyAvailable, buildplan.Dependency{})
 			f.AddBuildPlan(jvmapplication.Dependency, buildplan.Dependency{})
 
 			plan, err := b.Detect(f.Detect, m)
@@ -77,6 +87,9 @@ func TestDetect(t *testing.T) {
 				},
 				java.Dependency: buildplan.Dependency{
 					Metadata: buildplan.Metadata{"handler": ""},
+				},
+				adapter.Dependency: buildplan.Dependency{
+					Metadata: buildplan.Metadata{},
 				},
 			}))
 		})

@@ -18,6 +18,8 @@ package java
 
 import (
 	"fmt"
+	"github.com/projectriff/streaming-http-adapter-buildpack/adapter"
+	"strings"
 
 	"github.com/buildpack/libbuildpack/application"
 	"github.com/buildpack/libbuildpack/buildplan"
@@ -67,32 +69,29 @@ func (r RiffJavaInvoker) Contribute() error {
 
 	if err := r.functionLayer.Contribute(marker{"Java", r.handler}, func(layer layers.Layer) error {
 		if len(r.handler) > 0 {
-			return layer.OverrideLaunchEnv("FUNCTION_URI", fmt.Sprintf("file://%s?handler=%s", r.application.Root, r.handler))
-		} else {
-			return layer.OverrideLaunchEnv("FUNCTION_URI", fmt.Sprintf("file://%s", r.application.Root))
+			if strings.ContainsAny(r.handler, ".") {
+				if err := layer.OverrideLaunchEnv("SPRING_CLOUD_FUNCTION_FUNCTION_CLASS", r.handler); err != nil {
+					return err
+				}
+			} else {
+				if err := layer.OverrideLaunchEnv("SPRING_CLOUD_FUNCTION_FUNCTION_NAME", r.handler); err != nil {
+					return err
+				}
+			}
 		}
+		return layer.OverrideLaunchEnv("SPRING_CLOUD_FUNCTION_LOCATION", r.application.Root)
 	}, layers.Launch); err != nil {
 		return err
 	}
 
 	command := fmt.Sprintf("java -cp %s $JAVA_OPTS %s", r.invokerLayer.Root, invokerMainClass)
 
-	return r.layers.WriteApplicationMetadata(layers.Metadata{
+	return r.layers.WriteApplicationMetadata(adapter.Adapt(layers.Metadata{
 		Processes: layers.Processes{
 			layers.Process{Type: "function", Command: command},
 			layers.Process{Type: "web", Command: command},
 		},
-	})
-}
-
-func (r RiffJavaInvoker) command(destination string) string {
-	if len(r.handler) > 0 {
-		return fmt.Sprintf("java -jar %s $JAVA_OPTS --function.uri='file://%s?handler=%s'",
-			destination, r.application.Root, r.handler)
-	} else {
-		return fmt.Sprintf("java -jar %s $JAVA_OPTS --function.uri='file://%s'",
-			destination, r.application.Root)
-	}
+	}))
 }
 
 // BuildPlanContribution returns the BuildPlan with requirements for the invoker
@@ -109,7 +108,12 @@ func BuildPlanContribution(detect detect.Detect, metadata function.Metadata) bui
 	}
 	r.Metadata[Handler] = metadata.Handler
 
-	return buildplan.BuildPlan{jre.Dependency: j, Dependency: r}
+	p := detect.BuildPlan[adapter.Dependency]
+	if p.Metadata == nil {
+		p.Metadata = buildplan.Metadata{}
+	}
+
+	return buildplan.BuildPlan{jre.Dependency: j, Dependency: r, adapter.Dependency: p}
 }
 
 // NewJavaInvoker creates a new RiffJavaInvoker instance. OK is true if build plan contains "riff-invoker-java" dependency,

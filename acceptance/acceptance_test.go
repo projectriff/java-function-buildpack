@@ -31,6 +31,7 @@ func TestBuilder(t *testing.T) {
 			Refspec:     "c64950508fac705837205503ed4c8611acccc9c0", // master as of 2018-08-14
 			Input:       "builder",
 			ContentType: "text/plain",
+			Accept:      "text/plain",
 			Output:      "BUILDER",
 		},
 		Testcases: []fntesting.Testcase{
@@ -40,6 +41,8 @@ func TestBuilder(t *testing.T) {
 			},
 			{
 				Name:    "java-boot",
+				Repo:    "https://github.com/ericbottard/fats",
+				Refspec: "fix-boot-app",
 				SubPath: "functions/uppercase/java-boot",
 			},
 		},

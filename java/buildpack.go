@@ -18,7 +18,9 @@
 package java
 
 import (
+	"errors"
 	"fmt"
+	"github.com/projectriff/streaming-http-adapter-buildpack/adapter"
 
 	"github.com/buildpack/libbuildpack/buildplan"
 	"github.com/cloudfoundry/jvm-application-cnb/jvmapplication"
@@ -47,6 +49,10 @@ func (bp *JavaBuildpack) Detect(d detect.Detect, m function.Metadata) (*buildpla
 }
 
 func (*JavaBuildpack) detect(d detect.Detect, m function.Metadata) (bool, error) {
+	// Need the streaming adapter
+	if _, ok := d.BuildPlan[adapter.ProxyAvailable] ; !ok {
+		return false, errors.New("missing the http streaming adapter buildpack")
+	}
 	// Try java
 	_, ok := d.BuildPlan[jvmapplication.Dependency]
 	return ok, nil

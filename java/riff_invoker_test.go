@@ -18,6 +18,7 @@ package java_test
 
 import (
 	"fmt"
+	"github.com/projectriff/streaming-http-adapter-buildpack/adapter"
 	"path/filepath"
 	"testing"
 
@@ -46,12 +47,15 @@ func TestRiffInvoker(t *testing.T) {
 			})
 
 			it("contains openjdk-jre and riff-invoker-java in build plan", func() {
-				g.Expect(java.BuildPlanContribution(f.Detect, function.Metadata{Handler: "test-handler"})).To(Equal(buildplan.BuildPlan{
+				g.Expect(java.BuildPlanContribution(f.Detect, function.Metadata{Handler: "myfunction"})).To(Equal(buildplan.BuildPlan{
 					java.Dependency: buildplan.Dependency{
-						Metadata: buildplan.Metadata{java.Handler: "test-handler"},
+						Metadata: buildplan.Metadata{java.Handler: "myfunction"},
 					},
 					jre.Dependency: buildplan.Dependency{
 						Metadata: buildplan.Metadata{jre.LaunchContribution: true},
+					},
+					adapter.Dependency: buildplan.Dependency{
+						Metadata: buildplan.Metadata{},
 					},
 				}))
 			})
@@ -67,7 +71,7 @@ func TestRiffInvoker(t *testing.T) {
 
 			it("returns true if build plan exists", func() {
 				f.AddBuildPlan(java.Dependency, buildplan.Dependency{
-					Metadata: buildplan.Metadata{java.Handler: "test-handler"},
+					Metadata: buildplan.Metadata{java.Handler: "myfunction"},
 				})
 
 				_, ok, err := java.NewJavaInvoker(f.Build)
@@ -83,7 +87,7 @@ func TestRiffInvoker(t *testing.T) {
 
 			it("contributes invoker", func() {
 				f.AddBuildPlan(java.Dependency, buildplan.Dependency{
-					Metadata: buildplan.Metadata{java.Handler: "test-handler"},
+					Metadata: buildplan.Metadata{java.Handler: "myfunction"},
 				})
 
 				r, _, err := java.NewJavaInvoker(f.Build)
@@ -95,7 +99,7 @@ func TestRiffInvoker(t *testing.T) {
 				g.Expect(layer).To(test.HaveLayerMetadata(false, false, true))
 				g.Expect(filepath.Join(layer.Root, "META-INF", "MANIFEST.MF")).To(BeARegularFile())
 
-				command := fmt.Sprintf("java -cp %s $JAVA_OPTS org.springframework.boot.loader.JarLauncher",
+				command := fmt.Sprintf("streaming-http-adapter java -cp %s $JAVA_OPTS org.springframework.boot.loader.JarLauncher",
 					layer.Root)
 
 				g.Expect(f.Build.Layers).To(test.HaveApplicationMetadata(layers.Metadata{
@@ -106,7 +110,8 @@ func TestRiffInvoker(t *testing.T) {
 				}))
 
 				functionLayer := f.Build.Layers.Layer("function")
-				g.Expect(functionLayer).To(test.HaveOverrideLaunchEnvironment("FUNCTION_URI", fmt.Sprintf("file://%s?handler=test-handler", f.Build.Application.Root)))
+				g.Expect(functionLayer).To(test.HaveOverrideLaunchEnvironment("SPRING_CLOUD_FUNCTION_FUNCTION_NAME", "myfunction"))
+				g.Expect(functionLayer).To(test.HaveOverrideLaunchEnvironment("SPRING_CLOUD_FUNCTION_LOCATION", f.Build.Application.Root))
 			})
 		})
 	}, spec.Report(report.Terminal{}))

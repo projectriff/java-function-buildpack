@@ -26,9 +26,10 @@ id = "org.cloudfoundry.stacks.cflinuxfs3"
 [[metadata.dependencies]]
 id      = "riff-invoker-java"
 name    = "riff Java Invoker"
-version = "0.1.4"
-uri     = "https://repo.spring.io/libs-milestone-local/io/projectriff/java-function-invoker/0.1.4/java-function-invoker-0.1.4-exec.jar"
-sha256  = "afdb65875c6e160571057083d063b5d506d3f4dff235abeebaa75f447bf02b66"
+version = "1.0.0+streaming"
+#uri     = "https://github.com/ericbottard/streaming-java-function-invoker/releases/download/v0.1-alpha/java-function-invoker-1.0.0-SNAPSHOT.jar"
+uri     = "https://github.com/ericbottard/streaming-java-function-invoker/releases/download/dummy/java-function-invoker-new-scf-0.2.0-SNAPSHOT.jar"
+sha256  = "dafca5abebce8aab799674a4979668fdbeff854203b8ef174e87d9a1cb9e2156"
 stacks  = [
   "io.buildpacks.stacks.bionic",
   "org.cloudfoundry.stacks.cflinuxfs3",
