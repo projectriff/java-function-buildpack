@@ -29,7 +29,10 @@ name    = "riff Java Invoker"
 version = "0.1.4"
 uri     = "https://repo.spring.io/libs-milestone-local/io/projectriff/java-function-invoker/0.1.4/java-function-invoker-0.1.4-exec.jar"
 sha256  = "afdb65875c6e160571057083d063b5d506d3f4dff235abeebaa75f447bf02b66"
-stacks  = [ "io.buildpacks.stacks.bionic" ]
+stacks  = [
+  "io.buildpacks.stacks.bionic",
+  "org.cloudfoundry.stacks.cflinuxfs3",
+]
 
   [[metadata.dependencies.licenses]]
   type = "Apache-2.0"
