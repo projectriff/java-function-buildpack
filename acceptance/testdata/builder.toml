@@ -1,7 +1,7 @@
 buildpacks = [
   { id = "io.projectriff.java",          latest = true, uri = "../../artifactory/io/projectriff/java/io.projectriff.java/latest" },
-  { id = "org.cloudfoundry.openjdk",     latest = true, uri = "https://repo.spring.io/libs-milestone-local/org/cloudfoundry/openjdk/org.cloudfoundry.openjdk/1.0.0-M8/org.cloudfoundry.openjdk-1.0.0-M8.tgz" },
-  { id = "org.cloudfoundry.buildsystem", latest = true, uri = "https://repo.spring.io/libs-milestone-local/org/cloudfoundry/buildsystem/org.cloudfoundry.buildsystem/1.0.0-M8/org.cloudfoundry.buildsystem-1.0.0-M8.tgz" },
+  { id = "org.cloudfoundry.openjdk",     latest = true, uri = "https://repo.spring.io/libs-milestone-local/org/cloudfoundry/openjdk/org.cloudfoundry.openjdk/1.0.0-M9/org.cloudfoundry.openjdk-1.0.0-M9.tgz" },
+  { id = "org.cloudfoundry.buildsystem", latest = true, uri = "https://repo.spring.io/libs-milestone-local/org/cloudfoundry/buildsystem/org.cloudfoundry.buildsystem/1.0.0-M9/org.cloudfoundry.buildsystem-1.0.0-M9.tgz" },
 ]
 
 [[groups]]
