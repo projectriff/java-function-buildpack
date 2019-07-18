@@ -85,12 +85,6 @@ func (r RiffJavaInvoker) Contribute() error {
 	})
 }
 
-// String makes RiffJavaInvoker satisfy the Stringer interface.
-func (r RiffJavaInvoker) String() string {
-	return fmt.Sprintf("RiffJavaInvoker{ application: %s, handler: %s, layer: %s, layers :%s }",
-		r.application, r.handler, r.invokerLayer, r.layers)
-}
-
 func (r RiffJavaInvoker) command(destination string) string {
 	if len(r.handler) > 0 {
 		return fmt.Sprintf("java -jar %s $JAVA_OPTS --function.uri='file://%s?handler=%s'",
