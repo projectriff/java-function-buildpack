@@ -15,7 +15,7 @@
 [buildpack]
 id = "io.projectriff.java"
 name = "Java Function Buildpack"
-version = "0.1.5"
+version = "0.1.6-BUILD-SNAPSHOT"
 
 [[stacks]]
 id = "io.buildpacks.stacks.bionic"
