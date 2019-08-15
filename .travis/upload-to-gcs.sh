@@ -10,7 +10,11 @@ version=$(sed -n 's|version = \"\(.*\)\"|\1|p' buildpack.toml | head -n1)
 git_sha=$(git rev-parse HEAD)
 git_timestamp=$(TZ=UTC git show --quiet --date='format-local:%Y%m%d%H%M%S' --format="%cd")
 git_branch=${TRAVIS_BRANCH}
-slug=${version}-${git_timestamp}-${git_sha:0:16}
+slug=${version}
+if [[ ${version} = *"-SNAPSHOT" ]] ; then
+  # append timestamp and sha to slug
+  slug=${slug}-${git_timestamp}-${git_sha:0:16}
+fi
 
 echo "Publishing buildpack"
 gsutil cp -a public-read artifactory/io/projectriff/java/io.projectriff.java/${version}/io.projectriff.java-${slug}.tgz gs://projectriff/java-function-buildpack/
