@@ -29,7 +29,7 @@ name    = "riff Java Invoker"
 version = "1.0.0+streaming"
 #uri     = "https://github.com/ericbottard/streaming-java-function-invoker/releases/download/v0.1-alpha/java-function-invoker-1.0.0-SNAPSHOT.jar"
 uri     = "https://github.com/ericbottard/streaming-java-function-invoker/releases/download/dummy/java-function-invoker-new-scf-0.2.0-SNAPSHOT.jar"
-sha256  = "dafca5abebce8aab799674a4979668fdbeff854203b8ef174e87d9a1cb9e2156"
+sha256  = "67d4051dd12b9774eca744a53205600dde3655519840bb45a6631fcf2bfc4240"
 stacks  = [
   "io.buildpacks.stacks.bionic",
   "org.cloudfoundry.stacks.cflinuxfs3",
