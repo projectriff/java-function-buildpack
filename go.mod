@@ -11,3 +11,5 @@ require (
 	github.com/sclevine/spec v1.2.0
 	google.golang.org/genproto v0.0.0-20180831171423-11092d34479b // indirect
 )
+
+go 1.13

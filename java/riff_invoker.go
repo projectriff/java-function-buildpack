@@ -74,7 +74,7 @@ func (r RiffJavaInvoker) Contribute() error {
 					return err
 				}
 			} else {
-				if err := layer.OverrideLaunchEnv("SPRING_CLOUD_FUNCTION_FUNCTION_NAME", r.handler); err != nil {
+				if err := layer.OverrideLaunchEnv("SPRING_CLOUD_FUNCTION_DEFINITION", r.handler); err != nil {
 					return err
 				}
 			}

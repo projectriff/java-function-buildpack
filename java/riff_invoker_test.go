@@ -110,7 +110,7 @@ func TestRiffInvoker(t *testing.T) {
 				}))
 
 				functionLayer := f.Build.Layers.Layer("function")
-				g.Expect(functionLayer).To(test.HaveOverrideLaunchEnvironment("SPRING_CLOUD_FUNCTION_FUNCTION_NAME", "myfunction"))
+				g.Expect(functionLayer).To(test.HaveOverrideLaunchEnvironment("SPRING_CLOUD_FUNCTION_DEFINITION", "myfunction"))
 				g.Expect(functionLayer).To(test.HaveOverrideLaunchEnvironment("SPRING_CLOUD_FUNCTION_LOCATION", f.Build.Application.Root))
 			})
 		})

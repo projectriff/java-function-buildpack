@@ -1,6 +1,6 @@
 buildpacks = [
   { id = "io.projectriff.java",                     latest = true, uri = "../../artifactory/io/projectriff/java/io.projectriff.java/latest" },
-  { id = "io.projectriff.streaming-http-adapter",   latest = true, uri = "https://storage.googleapis.com/projectriff/streaming-http-adapter-buildpack/io.projectriff.streaming-http-adapter-0.0.1-BUILD-SNAPSHOT-20190819131307-0e01a0f5d5e271b1.tgz" },
+  { id = "io.projectriff.streaming-http-adapter",   latest = true, uri = "https://storage.googleapis.com/projectriff/streaming-http-adapter-buildpack/latest.tgz" },
   { id = "org.cloudfoundry.openjdk",                latest = true, uri = "https://repo.spring.io/libs-milestone-local/org/cloudfoundry/openjdk/org.cloudfoundry.openjdk/1.0.0-M9/org.cloudfoundry.openjdk-1.0.0-M9.tgz" },
   { id = "org.cloudfoundry.buildsystem",            latest = true, uri = "https://repo.spring.io/libs-milestone-local/org/cloudfoundry/buildsystem/org.cloudfoundry.buildsystem/1.0.0-M9/org.cloudfoundry.buildsystem-1.0.0-M9.tgz" },
 ]
