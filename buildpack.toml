@@ -26,7 +26,7 @@ id = "org.cloudfoundry.stacks.cflinuxfs3"
 [[metadata.dependencies]]
 id      = "riff-invoker-java"
 name    = "riff Java Invoker"
-version = "1.0.0+streaming"
+version = "0.2.0+snapshot"
 uri     = "https://storage.googleapis.com/projectriff/java-function-invoker/releases/latest/java-function-invoker.jar"
 sha256  = "482f996eb96c3ac7ad9cb5858155900224a0669a09b02a9f013c50565da653ba"
 stacks  = [
