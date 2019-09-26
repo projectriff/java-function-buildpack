@@ -17,110 +17,64 @@
 package java_test
 
 import (
-	"github.com/projectriff/streaming-http-adapter-buildpack/adapter"
 	"testing"
 
 	"github.com/buildpack/libbuildpack/buildplan"
 	"github.com/cloudfoundry/jvm-application-cnb/jvmapplication"
+	"github.com/cloudfoundry/libcfbuildpack/detect"
 	"github.com/cloudfoundry/libcfbuildpack/test"
 	"github.com/cloudfoundry/openjdk-cnb/jre"
-	. "github.com/onsi/gomega"
+	"github.com/onsi/gomega"
 	"github.com/projectriff/java-function-buildpack/java"
 	"github.com/projectriff/libfnbuildpack/function"
 	"github.com/sclevine/spec"
 	"github.com/sclevine/spec/report"
 )
 
-func TestName(t *testing.T) {
-	spec.Run(t, "Id", func(t *testing.T, _ spec.G, it spec.S) {
+func TestBuildpack(t *testing.T) {
+	spec.Run(t, "Buildpack", func(t *testing.T, when spec.G, it spec.S) {
 
-		g := NewGomegaWithT(t)
+		g := gomega.NewWithT(t)
 
-		it("has the right id", func() {
-			b := java.NewBuildpack()
-
-			g.Expect(b.Id()).To(Equal("java"))
-		})
-	}, spec.Report(report.Terminal{}))
-}
-
-func TestDetect(t *testing.T) {
-	spec.Run(t, "Detect", func(t *testing.T, _ spec.G, it spec.S) {
-
-		g := NewGomegaWithT(t)
-
-		var f *test.DetectFactory
-		var m function.Metadata
-		var b function.Buildpack
+		var (
+			b java.Buildpack
+			f *test.DetectFactory
+		)
 
 		it.Before(func() {
+			b = java.Buildpack{}
 			f = test.NewDetectFactory(t)
-			m = function.Metadata{}
-			b = java.NewBuildpack()
 		})
 
-		it("fails by default", func() {
-			f.AddBuildPlan(adapter.ProxyAvailable, buildplan.Dependency{})
-			plan, err := b.Detect(f.Detect, m)
+		when("id", func() {
 
-			g.Expect(err).To(BeNil())
-			g.Expect(plan).To(BeNil())
+			it("returns id", func() {
+				g.Expect(b.Id()).To(gomega.Equal("java"))
+			})
 		})
 
-		it("errors if http streaming adapter missing", func() {
-			plan, err := b.Detect(f.Detect, m)
-
-			g.Expect(err).To(MatchError("missing the http streaming adapter buildpack"))
-			g.Expect(plan).To(BeNil())
-		})
-
-		it("passes if the JVM app BP applied", func() {
-			f.AddBuildPlan(adapter.ProxyAvailable, buildplan.Dependency{})
-			f.AddBuildPlan(jvmapplication.Dependency, buildplan.Dependency{})
-
-			plan, err := b.Detect(f.Detect, m)
-
-			g.Expect(err).To(BeNil())
-			g.Expect(plan).To(Equal(&buildplan.BuildPlan{
-				jre.Dependency: buildplan.Dependency{
-					Metadata: buildplan.Metadata{"launch": true},
+		it("passes with handler", func() {
+			g.Expect(b.Detect(f.Detect, function.Metadata{Handler: "test.handler"})).To(gomega.Equal(detect.PassStatusCode))
+			g.Expect(f.Plans).To(test.HavePlans(buildplan.Plan{
+				Provides: []buildplan.Provided{
+					{Name: java.Dependency},
 				},
-				java.Dependency: buildplan.Dependency{
-					Metadata: buildplan.Metadata{"handler": ""},
-				},
-				adapter.Dependency: buildplan.Dependency{
-					Metadata: buildplan.Metadata{},
+				Requires: []buildplan.Required{
+					{
+						Name: jre.Dependency,
+						Metadata: map[string]interface{}{
+							jre.LaunchContribution: true,
+						},
+					},
+					{Name: jvmapplication.Dependency},
+					{
+						Name: java.Dependency,
+						Metadata: map[string]interface{}{
+							java.Handler: "test.handler",
+						},
+					},
 				},
 			}))
-		})
-	}, spec.Report(report.Terminal{}))
-}
-
-func TestBuild(t *testing.T) {
-	spec.Run(t, "Build", func(t *testing.T, _ spec.G, it spec.S) {
-		g := NewGomegaWithT(t)
-
-		var f *test.BuildFactory
-		var b function.Buildpack
-
-		it.Before(func() {
-			f = test.NewBuildFactory(t)
-			b = java.NewBuildpack()
-		})
-
-		it("won't build unless passed detection", func() {
-			err := b.Build(f.Build)
-
-			g.Expect(err).To(MatchError("buildpack passed detection but did not know how to actually build"))
-		})
-
-		it.Pend("will build if passed detection", func() {
-			f.AddBuildPlan(java.Dependency, buildplan.Dependency{})
-			f.AddDependency(java.Dependency, ".")
-
-			err := b.Build(f.Build)
-
-			g.Expect(err).To(BeNil())
 		})
 	}, spec.Report(report.Terminal{}))
 }

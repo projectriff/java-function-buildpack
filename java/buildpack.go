@@ -18,58 +18,67 @@
 package java
 
 import (
-	"errors"
-	"fmt"
-	"github.com/projectriff/streaming-http-adapter-buildpack/adapter"
-
 	"github.com/buildpack/libbuildpack/buildplan"
 	"github.com/cloudfoundry/jvm-application-cnb/jvmapplication"
 	"github.com/cloudfoundry/libcfbuildpack/build"
 	"github.com/cloudfoundry/libcfbuildpack/detect"
+	"github.com/cloudfoundry/openjdk-cnb/jre"
 	"github.com/projectriff/libfnbuildpack/function"
 )
 
-type JavaBuildpack struct {
-	id string
-}
+type Buildpack struct{}
 
-func (bp *JavaBuildpack) Id() string {
-	return bp.id
-}
+func (b Buildpack) Build(build build.Build) (int, error) {
+	if f, ok, err := NewFunction(build); err != nil {
+		return build.Failure(function.Error_ComponentInitialization), err
+	} else if ok {
+		if err := f.Contribute(); err != nil {
+			return build.Failure(function.Error_ComponentContribution), err
+		}
 
-func (bp *JavaBuildpack) Detect(d detect.Detect, m function.Metadata) (*buildplan.BuildPlan, error) {
-	if detected, err := bp.detect(d, m); err != nil {
-		return nil, err
-	} else if detected {
-		plan := BuildPlanContribution(d, m)
-		return &plan, nil
+		if streaming, err := NewStreamingHTTPAdapter(build); err != nil {
+			return build.Failure(function.Error_ComponentInitialization), err
+		} else {
+			if err := streaming.Contribute(); err != nil {
+				return build.Failure(function.Error_ComponentContribution), err
+			}
+		}
+
+		if invoker, ok, err := NewInvoker(build); err != nil {
+			return build.Failure(function.Error_ComponentInitialization), err
+		} else if ok {
+			if err := invoker.Contribute(); err != nil {
+				return build.Failure(function.Error_ComponentContribution), err
+			}
+		}
 	}
-	// didn't detect
-	return nil, nil
+
+	return build.Success()
 }
 
-func (*JavaBuildpack) detect(d detect.Detect, m function.Metadata) (bool, error) {
-	// Need the streaming adapter
-	if _, ok := d.BuildPlan[adapter.ProxyAvailable] ; !ok {
-		return false, errors.New("missing the http streaming adapter buildpack")
-	}
-	// Try java
-	_, ok := d.BuildPlan[jvmapplication.Dependency]
-	return ok, nil
+func (b Buildpack) Detect(detect detect.Detect, metadata function.Metadata) (int, error) {
+	return detect.Pass(buildplan.Plan{
+		Provides: []buildplan.Provided{
+			{Name: Dependency},
+		},
+		Requires: []buildplan.Required{
+			{
+				Name: jre.Dependency,
+				Metadata: map[string]interface{}{
+					jre.LaunchContribution: true,
+				},
+			},
+			{Name: jvmapplication.Dependency},
+			{
+				Name: Dependency,
+				Metadata: map[string]interface{}{
+					Handler: metadata.Handler,
+				},
+			},
+		},
+	})
 }
 
-func (*JavaBuildpack) Build(b build.Build) error {
-	invoker, ok, err := NewJavaInvoker(b)
-	if err != nil {
-		return err
-	} else if !ok {
-		return fmt.Errorf("buildpack passed detection but did not know how to actually build")
-	}
-	return invoker.Contribute()
-}
-
-func NewBuildpack() function.Buildpack {
-	return &JavaBuildpack{
-		id: "java",
-	}
+func (b Buildpack) Id() string {
+	return "java"
 }

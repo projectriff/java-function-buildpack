@@ -1,20 +1,17 @@
 buildpacks = [
-  { id = "io.projectriff.java",                     latest = true, uri = "../../artifactory/io/projectriff/java/io.projectriff.java/latest" },
-  { id = "io.projectriff.streaming-http-adapter",   latest = true, uri = "https://storage.googleapis.com/projectriff/streaming-http-adapter-buildpack/latest.tgz" },
-  { id = "org.cloudfoundry.openjdk",                latest = true, uri = "https://repo.spring.io/libs-milestone-local/org/cloudfoundry/openjdk/org.cloudfoundry.openjdk/1.0.0-M9/org.cloudfoundry.openjdk-1.0.0-M9.tgz" },
-  { id = "org.cloudfoundry.buildsystem",            latest = true, uri = "https://repo.spring.io/libs-milestone-local/org/cloudfoundry/buildsystem/org.cloudfoundry.buildsystem/1.0.0-M9/org.cloudfoundry.buildsystem-1.0.0-M9.tgz" },
+  { id = "io.projectriff.java",          uri = "../../artifactory/io/projectriff/java/io.projectriff.java/latest" },
+  { id = "org.cloudfoundry.buildsystem", uri = "https://storage.googleapis.com/cnb-buildpacks/build-system-cnb/org.cloudfoundry.buildsystem-1.0.40.tgz" },
+  { id = "org.cloudfoundry.openjdk",     uri = "https://storage.googleapis.com/cnb-buildpacks/openjdk-cnb/org.cloudfoundry.openjdk-1.0.19.tgz" },
 ]
 
-[[groups]]
-  # java functions
-  buildpacks = [
-    { id = "org.cloudfoundry.openjdk",              version = 'latest', optional = true },
-    { id = "org.cloudfoundry.buildsystem",          version = 'latest', optional = true },
-    { id = "io.projectriff.streaming-http-adapter", version = 'latest', optional = true },
-    { id = "io.projectriff.java",                   version = 'latest' },
-  ]
+[[order]]
+group = [
+  { id = "org.cloudfoundry.openjdk" },
+  { id = "org.cloudfoundry.buildsystem", optional = true },
+  { id = "io.projectriff.java" },
+]
 
 [stack]
-  id = "io.buildpacks.stacks.bionic"
-  build-image = "cnbs/build"
-  run-image = "cnbs/run"
+id          = "io.buildpacks.stacks.bionic"
+build-image = "cloudfoundry/build:base-cnb"
+run-image   = "cloudfoundry/run:base-cnb"
