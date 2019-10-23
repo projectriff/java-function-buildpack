@@ -1,6 +1,6 @@
 buildpacks = [
   { id = "io.projectriff.java",          uri = "../../artifactory/io/projectriff/java/io.projectriff.java/latest" },
-  { id = "org.cloudfoundry.buildsystem", uri = "https://storage.googleapis.com/cnb-buildpacks/build-system-cnb/org.cloudfoundry.buildsystem-1.0.40.tgz" },
+  { id = "org.cloudfoundry.buildsystem", uri = "https://storage.googleapis.com/cnb-buildpacks/build-system-cnb/org.cloudfoundry.buildsystem-1.0.107.tgz" },
   { id = "org.cloudfoundry.openjdk",     uri = "https://storage.googleapis.com/cnb-buildpacks/openjdk-cnb/org.cloudfoundry.openjdk-1.0.46.tgz" },
 ]
 
