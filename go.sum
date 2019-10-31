@@ -27,6 +27,8 @@ github.com/cloudfoundry/build-system-cnb v1.0.110 h1:165DLkCD9uA+MMTa0qT4eHJ9/W8
 github.com/cloudfoundry/build-system-cnb v1.0.110/go.mod h1:0Y9L8+LcH053Tyufn7EE6BRxINw13Zu4nQtkpRsOceA=
 github.com/cloudfoundry/jvm-application-cnb v1.0.66 h1:OtcDjRmvvdobeQJCk5qp6jH7jBe5rW6blUT8oh67o4g=
 github.com/cloudfoundry/jvm-application-cnb v1.0.66/go.mod h1:YbPazNZH3XgMtK35SAC+11cm6au4JxHe47zKaWwnQ2A=
+github.com/cloudfoundry/jvm-application-cnb v1.0.75 h1:HnulWgHiWiJ0oq77LWG6W7/uG0vHyhCGAcmMpqP2+fk=
+github.com/cloudfoundry/jvm-application-cnb v1.0.75/go.mod h1:9tE7+rJBXkCHT5YdXgkcK5Ad/rmyqN+p2SRi8ow/x8s=
 github.com/cloudfoundry/libcfbuildpack v1.87.2 h1:fTMiMguCubJc9ZbRN3oI3ZWPB4swixY6oQDDW+m/2vU=
 github.com/cloudfoundry/libcfbuildpack v1.87.2/go.mod h1:u4rY3hScjPQg0o9TFSoXsPShiuQIqNRmAoXzQ2qPdsw=
 github.com/cloudfoundry/libcfbuildpack v1.91.0 h1:FG82fj7/b97gqmgaatT2xA5UPW6xi0Elx4GvjJRNFZ4=
