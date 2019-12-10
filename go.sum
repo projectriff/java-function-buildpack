@@ -75,6 +75,8 @@ github.com/cloudfoundry/openjdk-cnb v1.0.56 h1:UR+nzkX1AfppyBWKCmB2n0ZJ2ZPnZ1aZF
 github.com/cloudfoundry/openjdk-cnb v1.0.56/go.mod h1:2OKiDVaNE/lUpC4kr3FY8lCeoWGEIyxuVurxA0RCq2s=
 github.com/cloudfoundry/openjdk-cnb v1.0.57/go.mod h1:WKdN8b/98F9gD5IZSOLzIDw6PaEMiz4W/ydhimU+8vE=
 github.com/cloudfoundry/openjdk-cnb v1.0.59/go.mod h1:ustqDlyGGqLNC1PT+ixsVpTzfX3oImdCTaQKrtUwrSc=
+github.com/cloudfoundry/openjdk-cnb v1.0.61 h1:PRq4gfaWl2ScgjtBEIyRgfkONhz+8eAKpXwoqEsM8WE=
+github.com/cloudfoundry/openjdk-cnb v1.0.61/go.mod h1:n/2S4ClOWg5p6jSLEmJZejDKaI4hPf10YYvPh6D6Bcw=
 github.com/fatih/color v1.7.0 h1:DkWD4oS2D8LGGgTQ6IvwJJXSL5Vp2ffcQg58nFV38Ys=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/fsnotify/fsnotify v1.4.7 h1:IXs+QLmnXW2CcXuY+8Mzv/fWEsPGWxqefPtCP5CnV9I=
