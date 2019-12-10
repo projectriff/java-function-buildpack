@@ -46,6 +46,8 @@ github.com/cloudfoundry/build-system-cnb v1.0.137 h1:47JmLxpODAL7WEbuWnBgujVtX5c
 github.com/cloudfoundry/build-system-cnb v1.0.137/go.mod h1:Q8TJnFp8IuJ6vT92vscE+zVRHbPUtgfOvdd7CxjOzHg=
 github.com/cloudfoundry/build-system-cnb v1.0.138 h1:c/oZN+zrP3kCwHp02dBpsZfa8LWvt9u/CZiaL23pCCs=
 github.com/cloudfoundry/build-system-cnb v1.0.138/go.mod h1:Q8TJnFp8IuJ6vT92vscE+zVRHbPUtgfOvdd7CxjOzHg=
+github.com/cloudfoundry/build-system-cnb v1.0.143 h1:3c91zXVZTfKwJcNaWds/vC4uURyCpaREZDcN348NuFE=
+github.com/cloudfoundry/build-system-cnb v1.0.143/go.mod h1:OekBMNuJnoFvxd2k3Uer43EN27QlxNohA3OhVVgu9YA=
 github.com/cloudfoundry/jvm-application-cnb v1.0.66 h1:OtcDjRmvvdobeQJCk5qp6jH7jBe5rW6blUT8oh67o4g=
 github.com/cloudfoundry/jvm-application-cnb v1.0.66/go.mod h1:YbPazNZH3XgMtK35SAC+11cm6au4JxHe47zKaWwnQ2A=
 github.com/cloudfoundry/jvm-application-cnb v1.0.75 h1:HnulWgHiWiJ0oq77LWG6W7/uG0vHyhCGAcmMpqP2+fk=
@@ -57,6 +59,7 @@ github.com/cloudfoundry/jvm-application-cnb v1.0.80 h1:VPYfzQTQC52sAvOTmJqphE4HO
 github.com/cloudfoundry/jvm-application-cnb v1.0.80/go.mod h1:/j1ZwdTk76Fvstdq7Vxdj91iNvYX25fDgAPbC7xWnuA=
 github.com/cloudfoundry/jvm-application-cnb v1.0.84 h1:vuaqua6VOrccIY2olL9hOfgFV6/hWXquTc9zy+PxvHw=
 github.com/cloudfoundry/jvm-application-cnb v1.0.84/go.mod h1:yNRMFa51y0H3X2q0GGabasGIQaIYbdhd3eYeMhOUYzo=
+github.com/cloudfoundry/jvm-application-cnb v1.0.87/go.mod h1:vIJUq/Fmsf7Eqo1DlC3FamfaAQMgTS91pXi54l1aEOw=
 github.com/cloudfoundry/libcfbuildpack v1.87.2 h1:fTMiMguCubJc9ZbRN3oI3ZWPB4swixY6oQDDW+m/2vU=
 github.com/cloudfoundry/libcfbuildpack v1.87.2/go.mod h1:u4rY3hScjPQg0o9TFSoXsPShiuQIqNRmAoXzQ2qPdsw=
 github.com/cloudfoundry/libcfbuildpack v1.91.0 h1:FG82fj7/b97gqmgaatT2xA5UPW6xi0Elx4GvjJRNFZ4=
@@ -190,6 +193,7 @@ golang.org/x/net v0.0.0-20191105084925-a882066a44e0/go.mod h1:z5CRVTTTmAJ677TzLL
 golang.org/x/net v0.0.0-20191112182307-2180aed22343/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
 golang.org/x/net v0.0.0-20191119073136-fc4aabc6c914/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
 golang.org/x/net v0.0.0-20191207000613-e7e4b65ae663/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
+golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
 golang.org/x/oauth2 v0.0.0-20180821212333-d2e6202438be/go.mod h1:N/0e6XlmueqKjAGxoOufVs8QHGRruUQn6yWY3a++T0U=
 golang.org/x/oauth2 v0.0.0-20190226205417-e64efc72b421/go.mod h1:gOpvHmFTYa4IltrdGE7lF6nIHvwfUNPOp7c8zoXwtLw=
 golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45 h1:SVwTIAaPC2U/AvvLNZ2a7OVsmBpC8L5BlwK1whH3hm0=
