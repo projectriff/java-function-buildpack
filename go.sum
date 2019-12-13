@@ -50,6 +50,8 @@ github.com/cloudfoundry/build-system-cnb v1.0.138 h1:c/oZN+zrP3kCwHp02dBpsZfa8LW
 github.com/cloudfoundry/build-system-cnb v1.0.138/go.mod h1:Q8TJnFp8IuJ6vT92vscE+zVRHbPUtgfOvdd7CxjOzHg=
 github.com/cloudfoundry/build-system-cnb v1.0.143 h1:3c91zXVZTfKwJcNaWds/vC4uURyCpaREZDcN348NuFE=
 github.com/cloudfoundry/build-system-cnb v1.0.143/go.mod h1:OekBMNuJnoFvxd2k3Uer43EN27QlxNohA3OhVVgu9YA=
+github.com/cloudfoundry/build-system-cnb v1.0.147 h1:alYPs49XvIV12Sta9ctpPKraJLhFfk9m12lLvIdiqnI=
+github.com/cloudfoundry/build-system-cnb v1.0.147/go.mod h1:fVVxCbnrd64k188UZqtTEEuhWjxrHgAFHwwYAnlFskg=
 github.com/cloudfoundry/jvm-application-cnb v1.0.66 h1:OtcDjRmvvdobeQJCk5qp6jH7jBe5rW6blUT8oh67o4g=
 github.com/cloudfoundry/jvm-application-cnb v1.0.66/go.mod h1:YbPazNZH3XgMtK35SAC+11cm6au4JxHe47zKaWwnQ2A=
 github.com/cloudfoundry/jvm-application-cnb v1.0.75 h1:HnulWgHiWiJ0oq77LWG6W7/uG0vHyhCGAcmMpqP2+fk=
