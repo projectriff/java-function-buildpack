@@ -6,7 +6,7 @@ require (
 	github.com/buildpack/libbuildpack v1.25.6
 	github.com/cloudfoundry/build-system-cnb v1.0.147
 	github.com/cloudfoundry/jvm-application-cnb v1.0.90
-	github.com/cloudfoundry/libcfbuildpack v1.91.8
+	github.com/cloudfoundry/libcfbuildpack v1.91.13
 	github.com/cloudfoundry/openjdk-cnb v1.0.64
 	github.com/onsi/gomega v1.7.0
 	github.com/projectriff/libfnbuildpack v0.3.0
