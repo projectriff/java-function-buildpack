@@ -3,7 +3,7 @@ module github.com/projectriff/java-function-buildpack
 go 1.13
 
 require (
-	github.com/buildpack/libbuildpack v1.25.8
+	github.com/buildpack/libbuildpack v1.25.9
 	github.com/cloudfoundry/build-system-cnb v1.0.162
 	github.com/cloudfoundry/jvm-application-cnb v1.0.99
 	github.com/cloudfoundry/libcfbuildpack v1.91.13
