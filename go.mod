@@ -5,7 +5,7 @@ go 1.13
 require (
 	github.com/buildpack/libbuildpack v1.25.10
 	github.com/cloudfoundry/build-system-cnb v1.0.182
-	github.com/cloudfoundry/jvm-application-cnb v1.0.110
+	github.com/cloudfoundry/jvm-application-cnb v1.0.113
 	github.com/cloudfoundry/libcfbuildpack v1.91.20
 	github.com/cloudfoundry/openjdk-cnb v1.0.79
 	github.com/onsi/gomega v1.8.1
