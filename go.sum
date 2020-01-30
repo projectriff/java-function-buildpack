@@ -70,6 +70,8 @@ github.com/cloudfoundry/jvm-application-cnb v1.0.128/go.mod h1:Vc7ofndgH8TmO3orP
 github.com/cloudfoundry/jvm-application-cnb v1.0.132/go.mod h1:vUuG+VoN9cTq4iys50HmgLnqaMR8dSJjkFJuWgkU/+w=
 github.com/cloudfoundry/jvm-application-cnb v1.0.136 h1:DCAePWHiX8FbyorftM8XtkEgJH+fwOdapeiBg/MJQnE=
 github.com/cloudfoundry/jvm-application-cnb v1.0.136/go.mod h1:6QFWCOAMvCF55OYF7CyrycFF0fALObuYUUUEKIcXsZw=
+github.com/cloudfoundry/jvm-application-cnb v1.1.0 h1:Wc5f2Fkqx12OkNLewQ0eJfRZ3FbysVyboj5eJcp4Cy4=
+github.com/cloudfoundry/jvm-application-cnb v1.1.0/go.mod h1:FKHvmHs1nhy0Yiv88TN21w1RiTgtkyS9oAsxAN+TQoE=
 github.com/cloudfoundry/libcfbuildpack v1.87.2 h1:fTMiMguCubJc9ZbRN3oI3ZWPB4swixY6oQDDW+m/2vU=
 github.com/cloudfoundry/libcfbuildpack v1.87.2/go.mod h1:u4rY3hScjPQg0o9TFSoXsPShiuQIqNRmAoXzQ2qPdsw=
 github.com/cloudfoundry/libcfbuildpack v1.91.16 h1:x0w2FCTQAOabz2Is+47d7Tz/lvkfMm237bgLYrEAsDU=
@@ -84,6 +86,7 @@ github.com/cloudfoundry/libcfbuildpack v1.91.22/go.mod h1:cEdi3DdqBruJMcaUw4MmP0
 github.com/cloudfoundry/libcfbuildpack v1.91.23 h1:RCorc4zL0D4+mG2z/qOueFyYGz1j3rM+e3Vbb37KPLg=
 github.com/cloudfoundry/libcfbuildpack v1.91.23/go.mod h1:h95FwHvbelcd0cSOhLC8SGEZXLwCMYh1dZo2kCr7lsA=
 github.com/cloudfoundry/libcfbuildpack/v2 v2.0.2/go.mod h1:2uWYXoTdidcJ0jDj881AVxo2GboDqbDFDe9uZa+Yam4=
+github.com/cloudfoundry/libcfbuildpack/v2 v2.1.0/go.mod h1:2uWYXoTdidcJ0jDj881AVxo2GboDqbDFDe9uZa+Yam4=
 github.com/cloudfoundry/openjdk-cnb v1.0.73/go.mod h1:D1myXlLgkwVcNt/8S80GD9cAsUZne06CpVLy2evztw0=
 github.com/cloudfoundry/openjdk-cnb v1.0.77 h1:/0S9xtwNFysRH3XVxxqfdM10RUVubfznzm49tZdcQPQ=
 github.com/cloudfoundry/openjdk-cnb v1.0.77/go.mod h1:/Vst8oayp1kEG6GUk1lea9xTbE2betv5AYqZTiwfv+I=
