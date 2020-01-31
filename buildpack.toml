@@ -25,13 +25,16 @@ id = "io.buildpacks.stacks.bionic"
 [[stacks]]
 id = "org.cloudfoundry.stacks.cflinuxfs3"
 
+[[stacks]]
+id = "heroku-18"
+
 [[metadata.dependencies]]
 id      = "riff-invoker-java"
 name    = "riff Java Invoker"
 version = "0.2.0+snapshot"
 uri     = "https://storage.googleapis.com/projectriff/java-function-invoker/releases/v0.2.0-SNAPSHOT/snapshots/java-function-invoker-0.2.0-SNAPSHOT-6b902e7d36c8a6755c1c493a0bd6179a49287090.jar"
 sha256  = "05ac25e9b12db3b78e9c26008b684e53fe78b12145d1e448608aec465602046c"
-stacks  = [ "io.buildpacks.stacks.bionic", "org.cloudfoundry.stacks.cflinuxfs3" ]
+stacks  = [ "io.buildpacks.stacks.bionic", "org.cloudfoundry.stacks.cflinuxfs3", "heroku-18" ]
 
   [[metadata.dependencies.licenses]]
   type = "Apache-2.0"
@@ -43,7 +46,7 @@ name    = "riff Streaming HTTP Adapter"
 version = "0.0.1"
 uri     = "https://storage.googleapis.com/projectriff/streaming-http-adapter/streaming-http-adapter-linux-amd64-0.1.0-snapshot-20190923123008-a6813ca902b44f89.tgz"
 sha256  = "43583761b3f771c4c821b6956ef4570e34c76704deb5992c608cfba1bd694d73"
-stacks  = [ "io.buildpacks.stacks.bionic", "org.cloudfoundry.stacks.cflinuxfs3" ]
+stacks  = [ "io.buildpacks.stacks.bionic", "org.cloudfoundry.stacks.cflinuxfs3", "heroku-18" ]
 
   [[metadata.dependencies.licenses]]
   type = "Apache-2.0"
