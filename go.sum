@@ -23,6 +23,7 @@ github.com/buildpack/libbuildpack v1.25.11 h1:dsvBRoD90s48tyndN5lQFvJFWpp7bKbSZ3
 github.com/buildpack/libbuildpack v1.25.11/go.mod h1:Fb1Eg3vT+B3i5l46aF6WsW7naCAYpCZmAv9UzIYs614=
 github.com/buildpacks/libbuildpack/v2 v2.0.3 h1:eA+2lUaNLCUAu6y7KifbWDUK/cepTN03pMMhcf3f3Zw=
 github.com/buildpacks/libbuildpack/v2 v2.0.3/go.mod h1:ISfrqZ/uemxv/pCEqq7Jp0l37sRpUpYkbxeaCEp0LPA=
+github.com/buildpacks/libbuildpack/v2 v2.0.4/go.mod h1:SJdEEYXPKxkLZSqNTPdJXltE6M0fjth6uonEEvGFq7s=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
 github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5PlCu98SY8svDHJxuZscDgtXS6KTTbou5AhLI=
@@ -32,6 +33,8 @@ github.com/cloudfoundry/build-system-cnb v1.2.0 h1:EpSo8EpIpxTJ7mfqNT7XLVWlrhP6q
 github.com/cloudfoundry/build-system-cnb v1.2.0/go.mod h1:nt7UcLGAgc75sE6+OdwibGtuXZt09gBxB8unxJydOWo=
 github.com/cloudfoundry/jvm-application-cnb v1.1.0 h1:Wc5f2Fkqx12OkNLewQ0eJfRZ3FbysVyboj5eJcp4Cy4=
 github.com/cloudfoundry/jvm-application-cnb v1.1.0/go.mod h1:FKHvmHs1nhy0Yiv88TN21w1RiTgtkyS9oAsxAN+TQoE=
+github.com/cloudfoundry/jvm-application-cnb v1.1.2 h1:/Hfiprc4EO48+VCMXG4Wt0CVTHXQXO654Vte/vDSB60=
+github.com/cloudfoundry/jvm-application-cnb v1.1.2/go.mod h1:F4VYm17nbF4Ts4ZbfAPRdyIqo3/CXOFWI4OxXTyCo4Y=
 github.com/cloudfoundry/libcfbuildpack v1.87.2 h1:fTMiMguCubJc9ZbRN3oI3ZWPB4swixY6oQDDW+m/2vU=
 github.com/cloudfoundry/libcfbuildpack v1.87.2/go.mod h1:u4rY3hScjPQg0o9TFSoXsPShiuQIqNRmAoXzQ2qPdsw=
 github.com/cloudfoundry/libcfbuildpack v1.91.23 h1:RCorc4zL0D4+mG2z/qOueFyYGz1j3rM+e3Vbb37KPLg=
@@ -60,6 +63,7 @@ github.com/golang/protobuf v1.2.0/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5y
 github.com/golang/protobuf v1.3.1/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
 github.com/golang/protobuf v1.3.2 h1:6nsPYzhq5kReh6QImI3k5qWzO4PEbvbIW2cwSfR/6xs=
 github.com/golang/protobuf v1.3.2/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
+github.com/golang/protobuf v1.3.3/go.mod h1:vzj43D7+SQXF/4pzW/hwtAqwc6iTitCiVSaWz5lYuqw=
 github.com/google/btree v0.0.0-20180813153112-4030bb1f1f0c/go.mod h1:lNA+9X1NB3Zf8V7Ke586lFgjr2dZNuvo3lPJSGZ5JPQ=
 github.com/google/btree v1.0.0/go.mod h1:lNA+9X1NB3Zf8V7Ke586lFgjr2dZNuvo3lPJSGZ5JPQ=
 github.com/google/go-cmp v0.2.0/go.mod h1:oXzfMopK8JAjlY9xF4vHSVASa0yLyX7SntLO5aqRK0M=
@@ -108,8 +112,10 @@ github.com/onsi/ginkgo v1.10.1 h1:q/mM8GF/n0shIN8SaAZ0V+jnLPzen6WIVZdiwrRlMlo=
 github.com/onsi/ginkgo v1.10.1/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.11.0 h1:JAKSXpt1YjtLA7YpPiqO9ss6sNXEsPfSGdwN0UHqzrw=
 github.com/onsi/ginkgo v1.11.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
+github.com/onsi/ginkgo v1.12.0/go.mod h1:oUhWkIvk5aDxtKvDDuw8gItl8pKl42LzjC9KZE0HfGg=
 github.com/onsi/gomega v1.7.0 h1:XPnZz8VVBHjVsy1vzJmRwIcSwiUO+JFfrv/xGiigmME=
 github.com/onsi/gomega v1.7.0/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1CpauHY=
+github.com/onsi/gomega v1.7.1/go.mod h1:XdKZgCCFLUoM/7CFJVPcG8C1xQ1AJ0vpAezJrB7JYyY=
 github.com/onsi/gomega v1.8.1 h1:C5Dqfs/LeauYDX0jJXIe2SWmwCbGzx9yF8C8xy3Lh34=
 github.com/onsi/gomega v1.8.1/go.mod h1:Ho0h+IUsWyvy1OpqCwxlQ/21gkhVunqlU8fDGcoTdcA=
 github.com/onsi/gomega v1.9.0 h1:R1uwffexN6Pr340GtYRIdZmAiN4J+iw6WG4wog1DUXg=
@@ -200,6 +206,7 @@ golang.org/x/sys v0.0.0-20190916202348-b4ddaad3f8a3/go.mod h1:h1NjWce9XRLGQEsW7w
 golang.org/x/sys v0.0.0-20190924154521-2837fb4f24fe h1:6fAMxZRR6sl1Uq8U61gxU+kPTs2tR8uOySCbBP7BN/M=
 golang.org/x/sys v0.0.0-20190924154521-2837fb4f24fe/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20191026070338-33540a1f6037/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20191120155948-bd437916bb0e/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20191204072324-ce4227a45e2e/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20200113162924-86b910548bc1/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20200116001909-b77594299b42/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
