@@ -35,6 +35,8 @@ github.com/cloudfoundry/build-system-cnb v1.2.0 h1:EpSo8EpIpxTJ7mfqNT7XLVWlrhP6q
 github.com/cloudfoundry/build-system-cnb v1.2.0/go.mod h1:nt7UcLGAgc75sE6+OdwibGtuXZt09gBxB8unxJydOWo=
 github.com/cloudfoundry/build-system-cnb v1.2.6 h1:X0K9AIdvehhJsz1Y5dtM0bsuX2zJvrN83WZiPtYyc8Y=
 github.com/cloudfoundry/build-system-cnb v1.2.6/go.mod h1:XvtcsnMss/Om2ATMPVeMtarkwx53XQYMyPNzSzWbTyI=
+github.com/cloudfoundry/build-system-cnb v1.2.7 h1:bt0ytCcZ9mXVXfuWEFpzK085FFj9YUAuabXwhWtCqEM=
+github.com/cloudfoundry/build-system-cnb v1.2.7/go.mod h1:kq7BLNPyG5Pay+3lUKxd4Uc3yTq2vO1eLDTcnqhBTkc=
 github.com/cloudfoundry/jvm-application-cnb v1.1.2 h1:/Hfiprc4EO48+VCMXG4Wt0CVTHXQXO654Vte/vDSB60=
 github.com/cloudfoundry/jvm-application-cnb v1.1.2/go.mod h1:F4VYm17nbF4Ts4ZbfAPRdyIqo3/CXOFWI4OxXTyCo4Y=
 github.com/cloudfoundry/jvm-application-cnb v1.1.7 h1:TtJsvvllcGRC7Fy6aW04gzfFXyyhpRxKqPX32VoL8qo=
@@ -112,6 +114,7 @@ github.com/mattn/go-isatty v0.0.11/go.mod h1:PhnuNfih5lzO57/f3n+odYbM4JtupLOxQOA
 github.com/mattn/go-isatty v0.0.12 h1:wuysRhFDzyxgEmMf5xjvJ2M9dZoWAXNNr5LSBS7uHXY=
 github.com/mattn/go-isatty v0.0.12/go.mod h1:cbi8OIDigv2wuxKPP5vlRcQ1OAZbq2CE4Kysco4FUpU=
 github.com/mattn/go-shellwords v1.0.9/go.mod h1:EZzvwXDESEeg03EKmM+RmDnNOPKG4lLtQsUlTZDWQ8Y=
+github.com/mattn/go-shellwords v1.0.10/go.mod h1:EZzvwXDESEeg03EKmM+RmDnNOPKG4lLtQsUlTZDWQ8Y=
 github.com/miekg/dns v1.1.27/go.mod h1:KNUDUusw/aVsxyTYZM1oqvCicbwhgbNgztCETuNZ7xM=
 github.com/mitchellh/mapstructure v1.1.2 h1:fmNYVwqnSfB9mZU6OS2O6GsXM+wcskZDuKQzvN1EDeE=
 github.com/mitchellh/mapstructure v1.1.2/go.mod h1:FVVH3fgwuzCH5S8UJGiWEs2h04kUh9fWfEaFds41c1Y=
