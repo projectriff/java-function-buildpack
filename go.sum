@@ -26,6 +26,7 @@ github.com/buildpacks/libbuildpack/v2 v2.0.3/go.mod h1:ISfrqZ/uemxv/pCEqq7Jp0l37
 github.com/buildpacks/libbuildpack/v2 v2.0.4 h1:U8Pd07Y+uB37EHedLjaOjD0a3CdZmX7BvI9mUYpWwjY=
 github.com/buildpacks/libbuildpack/v2 v2.0.4/go.mod h1:SJdEEYXPKxkLZSqNTPdJXltE6M0fjth6uonEEvGFq7s=
 github.com/buildpacks/libbuildpack/v2 v2.0.6/go.mod h1:h7deophsQ2/BJyQS7WB2tQAWWlTa5Or7vcbdhVE1bis=
+github.com/buildpacks/libbuildpack/v2 v2.0.7/go.mod h1:h7deophsQ2/BJyQS7WB2tQAWWlTa5Or7vcbdhVE1bis=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
 github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5PlCu98SY8svDHJxuZscDgtXS6KTTbou5AhLI=
@@ -48,10 +49,13 @@ github.com/cloudfoundry/libcfbuildpack v1.91.23/go.mod h1:h95FwHvbelcd0cSOhLC8SG
 github.com/cloudfoundry/libcfbuildpack/v2 v2.1.0 h1:cSbGKEF+2tEnDZzDzX295lisR51aEPGLHZNjiZSWe3s=
 github.com/cloudfoundry/libcfbuildpack/v2 v2.1.0/go.mod h1:2uWYXoTdidcJ0jDj881AVxo2GboDqbDFDe9uZa+Yam4=
 github.com/cloudfoundry/libcfbuildpack/v2 v2.1.4/go.mod h1:59LyqmVqUSISwSlcPxit6tJvxVY6W3nF7bS7S89RVvI=
+github.com/cloudfoundry/libcfbuildpack/v2 v2.1.5/go.mod h1:sJkVYgVet2isqGcmXDrlpIyMcefmkQVXyvhhsScr3O4=
 github.com/cloudfoundry/openjdk-cnb v1.2.0 h1:ecrXINcrUVbrSKyGqbvi5d0x2mSfZWo0zFgpdYwTaIo=
 github.com/cloudfoundry/openjdk-cnb v1.2.0/go.mod h1:cirYqqSOH/6URu1/vpW66dqYSnjFHTf0Ue4QujnTqmc=
 github.com/cloudfoundry/openjdk-cnb v1.2.9 h1:/ZR1IXw+dRiowuIY9EOtGp4HA/VSSLSC7T0YT4JpnhI=
 github.com/cloudfoundry/openjdk-cnb v1.2.9/go.mod h1:EStwfebMNReAg/RESpK60Ji9uuNwDfsp+SaWRElnz38=
+github.com/cloudfoundry/openjdk-cnb v1.2.11 h1:53olMYBwNkz1RoR8fkK3H19dHeoVK/uUN7MmoaUUQKM=
+github.com/cloudfoundry/openjdk-cnb v1.2.11/go.mod h1:5o8p6+JAUuiHCrnHReA5SYBjuCR6yXc9rwtVUKFx+xI=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/envoyproxy/go-control-plane v0.9.1-0.20191026205805-5f8ba28d4473/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
