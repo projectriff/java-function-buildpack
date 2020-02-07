@@ -17,7 +17,7 @@ api = "0.2"
 [buildpack]
 id = "io.projectriff.java"
 name = "Java Function Buildpack"
-version = "0.2.0"
+version = "0.2.1"
 
 [[stacks]]
 id = "io.buildpacks.stacks.bionic"
@@ -31,7 +31,7 @@ id = "heroku-18"
 [[metadata.dependencies]]
 id      = "riff-invoker-java"
 name    = "riff Java Invoker"
-version = "0.2.0+snapshot"
+version = "0.2.0"
 uri     = "https://storage.googleapis.com/projectriff/java-function-invoker/releases/v0.2.0/java-function-invoker-0.2.0.jar"
 sha256  = "7ed717ba5c18e8bfab19d4db817112b8c5d3bb7ac1e81764589724ccc644bdcd"
 stacks  = [ "io.buildpacks.stacks.bionic", "org.cloudfoundry.stacks.cflinuxfs3", "heroku-18" ]
@@ -43,7 +43,7 @@ stacks  = [ "io.buildpacks.stacks.bionic", "org.cloudfoundry.stacks.cflinuxfs3",
 [[metadata.dependencies]]
 id      = "streaming-http-adapter"
 name    = "riff Streaming HTTP Adapter"
-version = "0.0.1"
+version = "0.5.0"
 uri     = "https://storage.googleapis.com/projectriff/streaming-http-adapter/streaming-http-adapter-linux-amd64-0.5.0-20200207163938-0e42a6a969881b6c.tgz"
 sha256  = "d45e34d7469fde569c5209743b29e6bf0550c360bcc762859e049231ac649bc2"
 stacks  = [ "io.buildpacks.stacks.bionic", "org.cloudfoundry.stacks.cflinuxfs3", "heroku-18" ]
