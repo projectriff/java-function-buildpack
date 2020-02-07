@@ -54,12 +54,15 @@ github.com/cloudfoundry/libcfbuildpack/v2 v2.1.0 h1:cSbGKEF+2tEnDZzDzX295lisR51a
 github.com/cloudfoundry/libcfbuildpack/v2 v2.1.0/go.mod h1:2uWYXoTdidcJ0jDj881AVxo2GboDqbDFDe9uZa+Yam4=
 github.com/cloudfoundry/libcfbuildpack/v2 v2.1.4/go.mod h1:59LyqmVqUSISwSlcPxit6tJvxVY6W3nF7bS7S89RVvI=
 github.com/cloudfoundry/libcfbuildpack/v2 v2.1.5/go.mod h1:sJkVYgVet2isqGcmXDrlpIyMcefmkQVXyvhhsScr3O4=
+github.com/cloudfoundry/libcfbuildpack/v2 v2.1.6/go.mod h1:H8kBhhtRt2j6VQG1GnFTe7+wsTCuplH98gUs4SZqcX0=
 github.com/cloudfoundry/openjdk-cnb v1.2.0 h1:ecrXINcrUVbrSKyGqbvi5d0x2mSfZWo0zFgpdYwTaIo=
 github.com/cloudfoundry/openjdk-cnb v1.2.0/go.mod h1:cirYqqSOH/6URu1/vpW66dqYSnjFHTf0Ue4QujnTqmc=
 github.com/cloudfoundry/openjdk-cnb v1.2.9 h1:/ZR1IXw+dRiowuIY9EOtGp4HA/VSSLSC7T0YT4JpnhI=
 github.com/cloudfoundry/openjdk-cnb v1.2.9/go.mod h1:EStwfebMNReAg/RESpK60Ji9uuNwDfsp+SaWRElnz38=
 github.com/cloudfoundry/openjdk-cnb v1.2.11 h1:53olMYBwNkz1RoR8fkK3H19dHeoVK/uUN7MmoaUUQKM=
 github.com/cloudfoundry/openjdk-cnb v1.2.11/go.mod h1:5o8p6+JAUuiHCrnHReA5SYBjuCR6yXc9rwtVUKFx+xI=
+github.com/cloudfoundry/openjdk-cnb v1.2.12 h1:irB1MVfYMZ6WbP6K2oXN/FjujKc5Zf+qFtevp7/bmR0=
+github.com/cloudfoundry/openjdk-cnb v1.2.12/go.mod h1:g/O156uW27vnPgOA6cacugZUjVNZLuYR+z6wtx8OCh8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/envoyproxy/go-control-plane v0.9.1-0.20191026205805-5f8ba28d4473/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
@@ -96,6 +99,7 @@ github.com/googleapis/gax-go/v2 v2.0.4/go.mod h1:0Wqv26UfaUD9n4G6kQubkQ+KchISgw+
 github.com/googleapis/gax-go/v2 v2.0.5/go.mod h1:DWXyrwAJ9X0FpwwEdw+IPEYBICEFu5mhpdKc/us6bOk=
 github.com/hashicorp/golang-lru v0.5.0/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
 github.com/hashicorp/golang-lru v0.5.1/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
+github.com/heroku/color v0.0.6/go.mod h1:ZBvOcx7cTF2QKOv4LbmoBtNl5uB17qWxGuzZrsi1wLU=
 github.com/hpcloud/tail v1.0.0 h1:nfCOvKYfkgYP8hkirhJocXT2+zOD8yUNjXaWfTlyFKI=
 github.com/hpcloud/tail v1.0.0/go.mod h1:ab1qPbhIpdTxEkNHXyeSf5vhxWSCs/tWer42PpOxQnU=
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
@@ -162,6 +166,7 @@ golang.org/x/crypto v0.0.0-20190605123033-f99c8df09eb5/go.mod h1:yigFU9vqHzYiE8U
 golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
 golang.org/x/crypto v0.0.0-20200128174031-69ecbb4d6d5d/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/crypto v0.0.0-20200204104054-c9f3fb736b72/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
+golang.org/x/crypto v0.0.0-20200206161412-a0c6ece9d31a/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/exp v0.0.0-20190121172915-509febef88a4/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20190306152737-a1d7652674e8/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20190510132918-efd6b22b2522/go.mod h1:ZjyILWgesfNpC6sMxTJOJm9Kp84zZh5NQWvqDGG3Qr8=
