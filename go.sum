@@ -28,6 +28,8 @@ github.com/chzyer/test v0.0.0-20180213035817-a1ea475d72b1/go.mod h1:Q3SI9o4m/ZMn
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cloudfoundry/build-system-cnb v1.2.9 h1:/XSm3kSgWr1MMHWJ3entdHA2od2cqCDDN94f1CsNiyg=
 github.com/cloudfoundry/build-system-cnb v1.2.9/go.mod h1:Qdpx61EHbg/dupKe4vGCAEQ2pYEx6N6doOS2QvutWkg=
+github.com/cloudfoundry/build-system-cnb v1.2.11 h1:z3bW9sjVOxTuUJ+gGO7eupOUsrcvENwjkcyxldIn4I4=
+github.com/cloudfoundry/build-system-cnb v1.2.11/go.mod h1:FBst8heiX8ecRqwsseYyBfSkmVgRKa+M1/NEM+WmOsw=
 github.com/cloudfoundry/jvm-application-cnb v1.1.10 h1:3gAIQj+hEnaQJReljsqTW6tLuVG18RuCV+XX+MqcJyg=
 github.com/cloudfoundry/jvm-application-cnb v1.1.10/go.mod h1:yt3I8alTJdziSpSJw1XtWcAx766mY9o/r5kWBMDUJmY=
 github.com/cloudfoundry/jvm-application-cnb v1.1.11 h1:aFqBGnxwyhvAr12hc0HLpyWouYbxaUEACiNNNVoLW4w=
