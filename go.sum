@@ -132,6 +132,8 @@ github.com/onsi/gomega v1.9.0/go.mod h1:Ho0h+IUsWyvy1OpqCwxlQ/21gkhVunqlU8fDGcoT
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/projectriff/libfnbuildpack v0.4.0 h1:GycpHM75EmRuO18zIu4oECWgTV7liIGFTgw3o3eiSWs=
 github.com/projectriff/libfnbuildpack v0.4.0/go.mod h1:nSa4ok3w94uIvOzUFdIciQgesuL6KhTzX0CO7x7GL1c=
+github.com/projectriff/libfnbuildpack v0.4.1 h1:cY/GFNmFHJYTh79uYZPiAdtMfhMaPob5DOEWlSpwk7Y=
+github.com/projectriff/libfnbuildpack v0.4.1/go.mod h1:nSa4ok3w94uIvOzUFdIciQgesuL6KhTzX0CO7x7GL1c=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/sclevine/spec v1.4.0 h1:z/Q9idDcay5m5irkZ28M7PtQM4aOISzOpj4bUPkDee8=
