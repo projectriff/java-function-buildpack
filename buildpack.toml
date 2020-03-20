@@ -32,8 +32,8 @@ id = "heroku-18"
 id      = "riff-invoker-java"
 name    = "riff Java Invoker"
 version = "0.2.1+snapshot"
-uri     = "https://storage.googleapis.com/projectriff/java-function-invoker/releases/v0.2.1-SNAPSHOT/snapshots/java-function-invoker-0.2.1-SNAPSHOT-971281e787164dd92ec9ebe826a5335f6d8e6980.jar"
-sha256  = "d8ac28ce02e2a626d98e7f1fa7ea436412165932360b55a60ada81fcb2e4d871"
+uri     = "https://storage.googleapis.com/projectriff/java-function-invoker/releases/v0.2.1-SNAPSHOT/snapshots/java-function-invoker-0.2.1-SNAPSHOT-63df8e55845a66bdd171dee0c35122dc122d87e0.jar"
+sha256  = "1bb07f916801486dc02db9596935a16460540999c3fb5c4cd28297a7301abcbd"
 stacks  = [ "io.buildpacks.stacks.bionic", "org.cloudfoundry.stacks.cflinuxfs3", "heroku-18" ]
 
   [[metadata.dependencies.licenses]]
