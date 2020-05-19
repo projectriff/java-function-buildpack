@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2019 the original author or authors.
+ * Copyright 2018-2020 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,64 +18,40 @@ package java
 
 import (
 	"fmt"
+	"os"
 
-	"github.com/cloudfoundry/libcfbuildpack/build"
-	"github.com/cloudfoundry/libcfbuildpack/helper"
-	"github.com/cloudfoundry/libcfbuildpack/layers"
+	"github.com/buildpacks/libcnb"
+	"github.com/paketo-buildpacks/libpak"
+	"github.com/paketo-buildpacks/libpak/bard"
+	"github.com/paketo-buildpacks/libpak/crush"
 )
 
-// Dependency is the key identifying the riff java invoker in the buildpack plan.
-const Dependency = "riff-invoker-java"
-
-// Invoker represents the Java invoker contributed by the buildpack.
 type Invoker struct {
-	layer  layers.DependencyLayer
-	layers layers.Layers
+	LayerContributor libpak.DependencyLayerContributor
+	Logger           bard.Logger
 }
 
-// Contributes makes the contribution to the launch layer.
-func (i Invoker) Contribute() error {
-	if err := i.layer.Contribute(func(artifact string, layer layers.DependencyLayer) error {
-		layer.Logger.Body("Expanding to %s", layer.Root)
-		return helper.ExtractZip(artifact, layer.Root, 0)
-	}, layers.Launch); err != nil {
-		return err
-	}
+func NewInvoker(dependency libpak.BuildpackDependency, cache libpak.DependencyCache, plan *libcnb.BuildpackPlan) Invoker {
+	return Invoker{LayerContributor: libpak.NewDependencyLayerContributor(dependency, cache, plan)}
+}
 
-	streamingCommand := fmt.Sprintf("java -cp %s $JAVA_OPTS org.springframework.boot.loader.JarLauncher", i.layer.Root)
-	command := fmt.Sprintf("streaming-http-adapter %s", streamingCommand)
+func (i Invoker) Contribute(layer libcnb.Layer) (libcnb.Layer, error) {
+	i.LayerContributor.Logger = i.Logger
 
-	return i.layers.WriteApplicationMetadata(layers.Metadata{
-		Processes: layers.Processes{
-			layers.Process{Type: "function", Command: command},
-			layers.Process{Type: "streaming-function", Command: streamingCommand},
-			layers.Process{Type: "web", Command: command},
-		},
+	return i.LayerContributor.Contribute(layer, func(artifact *os.File) (libcnb.Layer, error) {
+		i.Logger.Bodyf("Expanding to %s", layer.Path)
+
+		if err := crush.ExtractZip(artifact, layer.Path, 0); err != nil {
+			return libcnb.Layer{}, fmt.Errorf("unable to extract %s\n%w", artifact.Name(), err)
+		}
+
+		layer.LaunchEnvironment.PrependPath("CLASSPATH", layer.Path)
+
+		layer.Launch = true
+		return layer, nil
 	})
 }
 
-// NewInvoker creates a new instance returning true if the riff-invoker-java plan exists.
-func NewInvoker(build build.Build) (Invoker, bool, error) {
-	p, ok, err := build.Plans.GetShallowMerged(Dependency)
-	if err != nil {
-		return Invoker{}, false, err
-	}
-	if !ok {
-		return Invoker{}, false, nil
-	}
-
-	deps, err := build.Buildpack.Dependencies()
-	if err != nil {
-		return Invoker{}, false, err
-	}
-
-	dep, err := deps.Best(Dependency, p.Version, build.Stack)
-	if err != nil {
-		return Invoker{}, false, err
-	}
-
-	return Invoker{
-		build.Layers.DependencyLayer(dep),
-		build.Layers,
-	}, true, nil
+func (Invoker) Name() string {
+	return "invoker"
 }
