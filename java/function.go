@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2019 the original author or authors.
+ * Copyright 2018-2020 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,75 +17,48 @@
 package java
 
 import (
-	"fmt"
 	"strings"
 
-	"github.com/buildpack/libbuildpack/application"
-	"github.com/cloudfoundry/libcfbuildpack/build"
-	"github.com/cloudfoundry/libcfbuildpack/layers"
+	"github.com/buildpacks/libcnb"
+	"github.com/paketo-buildpacks/libpak"
+	"github.com/paketo-buildpacks/libpak/bard"
 )
 
-// Handler is the key identifying the riff handler metadata in the build plan
-const Handler = "handler"
-
-// Function represents the function to be executed.
 type Function struct {
-	application application.Application
-	handler     string
-	layer       layers.Layer
+	ApplicationPath  string
+	Handler          string
+	LayerContributor libpak.LayerContributor
+	Logger           bard.Logger
 }
 
-// Contributes makes the contribution to the launch layer.
-func (f Function) Contribute() error {
-	return f.layer.Contribute(marker{"Java", f.handler}, func(layer layers.Layer) error {
-		if len(f.handler) > 0 {
-			if strings.ContainsAny(f.handler, ".") {
-				if err := layer.OverrideLaunchEnv("SPRING_CLOUD_FUNCTION_FUNCTION_CLASS", f.handler); err != nil {
-					return err
-				}
+func NewFunction(applicationPath string, handler string) (Function, error) {
+	return Function{
+		ApplicationPath: applicationPath,
+		Handler:         handler,
+		LayerContributor: libpak.NewLayerContributor(bard.FormatIdentity("Java", handler),
+			map[string]interface{}{"handler": handler}),
+	}, nil
+}
+
+func (f Function) Contribute(layer libcnb.Layer) (libcnb.Layer, error) {
+	f.LayerContributor.Logger = f.Logger
+
+	return f.LayerContributor.Contribute(layer, func() (libcnb.Layer, error) {
+		if len(f.Handler) > 0 {
+			if strings.ContainsAny(f.Handler, ".") {
+				layer.LaunchEnvironment.Override("SPRING_CLOUD_FUNCTION_FUNCTION_CLASS", f.Handler)
 			} else {
-				if err := layer.OverrideLaunchEnv("SPRING_CLOUD_FUNCTION_DEFINITION", f.handler); err != nil {
-					return err
-				}
+				layer.LaunchEnvironment.Override("SPRING_CLOUD_FUNCTION_DEFINITION", f.Handler)
 			}
 		}
 
-		return layer.OverrideLaunchEnv("SPRING_CLOUD_FUNCTION_LOCATION", f.application.Root)
-	}, layers.Launch)
+		layer.LaunchEnvironment.Override("SPRING_CLOUD_FUNCTION_LOCATION", f.ApplicationPath)
+
+		layer.Launch = true
+		return layer, nil
+	})
 }
 
-// NewFunction creates a new instance returning true if the riff-invoker-java plan exists.
-func NewFunction(build build.Build) (Function, bool, error) {
-	p, ok, err := build.Plans.GetShallowMerged(Dependency)
-	if err != nil {
-		return Function{}, false, err
-	}
-	if !ok {
-		return Function{}, false, nil
-	}
-
-	fa, ok := p.Metadata[Handler]
-	if !ok {
-		fa = ""
-	}
-
-	exec, ok := fa.(string)
-	if !ok {
-		return Function{}, false, fmt.Errorf("handler metadata of incorrect type: %v", p.Metadata[Handler])
-	}
-
-	return Function{
-		build.Application,
-		exec,
-		build.Layers.Layer("java-function"),
-	}, true, nil
-}
-
-type marker struct {
-	Type    string `toml:"type"`
-	Handler string `toml:"handler"`
-}
-
-func (m marker) Identity() (string, string) {
-	return m.Type, m.Handler
+func (Function) Name() string {
+	return "function"
 }
