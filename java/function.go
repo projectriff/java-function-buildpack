@@ -22,6 +22,7 @@ import (
 	"github.com/buildpacks/libcnb"
 	"github.com/paketo-buildpacks/libpak"
 	"github.com/paketo-buildpacks/libpak/bard"
+	"github.com/projectriff/libfnbuildpack"
 )
 
 type Function struct {
@@ -35,7 +36,7 @@ func NewFunction(applicationPath string, handler string) (Function, error) {
 	return Function{
 		ApplicationPath: applicationPath,
 		Handler:         handler,
-		LayerContributor: libpak.NewLayerContributor(bard.FormatIdentity("Java", handler),
+		LayerContributor: libpak.NewLayerContributor(libfnbuildpack.FormatFunction("Java", handler),
 			map[string]interface{}{"handler": handler}),
 	}, nil
 }
