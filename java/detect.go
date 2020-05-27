@@ -50,17 +50,19 @@ func (Detect) Detect(context libcnb.DetectContext) (libcnb.DetectResult, error) 
 
 	if ok, err := libfnbuildpack.IsRiff(context.Application.Path, cr); err != nil {
 		return libcnb.DetectResult{}, fmt.Errorf("unable to determine if application is riff\n%w", err)
-	} else if ok {
-		metadata, err := libfnbuildpack.Metadata(context.Application.Path, cr)
-		if err != nil {
-			return libcnb.DetectResult{}, fmt.Errorf("uanble to read riff metadata\n%w", err)
-		}
-
-		result.Plans[0].Requires = append(result.Plans[0].Requires, libcnb.BuildPlanRequire{
-			Name:     "riff-java",
-			Metadata: metadata,
-		})
+	} else if !ok {
+		return result, nil
 	}
+
+	metadata, err := libfnbuildpack.Metadata(context.Application.Path, cr)
+	if err != nil {
+		return libcnb.DetectResult{}, fmt.Errorf("unable to read riff metadata\n%w", err)
+	}
+
+	result.Plans[0].Requires = append(result.Plans[0].Requires, libcnb.BuildPlanRequire{
+		Name:     "riff-java",
+		Metadata: metadata,
+	})
 
 	return result, nil
 }
