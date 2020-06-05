@@ -8,5 +8,4 @@ require (
 	github.com/paketo-buildpacks/libpak v1.35.0
 	github.com/projectriff/libfnbuildpack v0.7.0
 	github.com/sclevine/spec v1.4.0
-	golang.org/x/sys v0.0.0-20200602225109-6fdc65e7d980 // indirect
 )
