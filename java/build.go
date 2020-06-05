@@ -76,11 +76,12 @@ func (b Build) Build(context libcnb.BuildContext) (libcnb.BuildResult, error) {
 	f.Logger = b.Logger
 	result.Layers = append(result.Layers, f)
 
-	command := `streaming-http-adapter java -cp "${CLASSPATH}" ${JAVA_OPTS} org.springframework.boot.loader.JarLauncher`
+	command := "streaming-http-adapter"
+	arguments := []string{"java", "-cp", `"${CLASSPATH}"`, "${JAVA_OPTS}", "org.springframework.boot.loader.JarLauncher"}
 	result.Processes = append(result.Processes,
-		libcnb.Process{Type: "java-function", Command: command},
-		libcnb.Process{Type: "function", Command: command},
-		libcnb.Process{Type: "web", Command: command},
+		libcnb.Process{Type: "java-function", Command: command, Arguments: arguments},
+		libcnb.Process{Type: "function", Command: command, Arguments: arguments},
+		libcnb.Process{Type: "web", Command: command, Arguments: arguments},
 	)
 
 	return result, nil
