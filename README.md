@@ -1,4 +1,4 @@
-# `java-function-buildpack` [![Build Status](https://travis-ci.com/projectriff/java-function-buildpack.svg?branch=master)](https://travis-ci.com/projectriff/java-function-buildpack)
+# `java-function-buildpack` [![Build Status](https://travis-ci.com/projectriff/java-function-buildpack.svg?branch=main)](https://travis-ci.com/projectriff/java-function-buildpack)
 
 The Java Function Buildpack is a Cloud Native Buildpack V3 that provides the riff [Java Function Invoker](https://github.com/projectriff/java-function-invoker) to functions.
 
