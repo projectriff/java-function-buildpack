@@ -23,8 +23,9 @@ import (
 
 	"github.com/buildpacks/libcnb"
 	. "github.com/onsi/gomega"
-	"github.com/projectriff/java-function-buildpack/java"
 	"github.com/sclevine/spec"
+
+	"github.com/projectriff/java-function-buildpack/java"
 )
 
 func testBuild(t *testing.T, context spec.G, it spec.S) {

@@ -25,8 +25,9 @@ import (
 	"github.com/buildpacks/libcnb"
 	. "github.com/onsi/gomega"
 	"github.com/paketo-buildpacks/libpak"
-	"github.com/projectriff/java-function-buildpack/java"
 	"github.com/sclevine/spec"
+
+	"github.com/projectriff/java-function-buildpack/java"
 )
 
 func testInvoker(t *testing.T, context spec.G, it spec.S) {
