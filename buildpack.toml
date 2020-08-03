@@ -30,6 +30,11 @@ id = "io.buildpacks.stacks.bionic"
 id = "org.cloudfoundry.stacks.cflinuxfs3"
 
 [[metadata.configurations]]
+name        = "JAVA_OPTS"
+description = "the flags passed to the JVM process at launch"
+launch      = true
+
+[[metadata.configurations]]
 name        = "RIFF"
 description = "whether this is a riff function without a riff.toml file"
 build       = true

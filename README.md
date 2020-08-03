@@ -41,6 +41,11 @@ The function behavior is exposed _via_ standard buildpack [process types](https:
 - Contributes `web` process
 - Contributes `function` process
 
+## Configuration
+| Environment Variable | Description
+| -------------------- | -----------
+| `$JAVA_OPTS` | Configure the flags passed to the JVM process at launch
+
 #### Bindings
 The buildpack optionally accepts the following bindings during the build phase:
 
