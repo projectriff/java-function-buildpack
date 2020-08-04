@@ -52,6 +52,6 @@ func (i Invoker) Contribute(layer libcnb.Layer) (libcnb.Layer, error) {
 	})
 }
 
-func (Invoker) Name() string {
-	return "invoker"
+func (i Invoker) Name() string {
+	return i.LayerContributor.LayerName()
 }
