@@ -71,9 +71,9 @@ func testBuild(t *testing.T, context spec.G, it spec.S) {
 		Expect(result.Layers[1].(java.Function).Handler).To(Equal("test-handler"))
 
 		Expect(result.Processes).To(ContainElements(
-			libcnb.Process{Type: "java-function", Command: `streaming-http-adapter java -cp "${CLASSPATH}" ${JAVA_OPTS} org.springframework.boot.loader.JarLauncher`},
-			libcnb.Process{Type: "function", Command: `streaming-http-adapter java -cp "${CLASSPATH}" ${JAVA_OPTS} org.springframework.boot.loader.JarLauncher`},
-			libcnb.Process{Type: "web", Command: `streaming-http-adapter java -cp "${CLASSPATH}" ${JAVA_OPTS} org.springframework.boot.loader.JarLauncher`},
+			libcnb.Process{Type: "java-function", Command: "streaming-http-adapter", Arguments: []string{"java", "org.springframework.boot.loader.JarLauncher"}},
+			libcnb.Process{Type: "function", Command: "streaming-http-adapter", Arguments: []string{"java", "org.springframework.boot.loader.JarLauncher"}},
+			libcnb.Process{Type: "web", Command: "streaming-http-adapter", Arguments: []string{"java", "org.springframework.boot.loader.JarLauncher"}},
 		))
 	})
 
