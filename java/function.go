@@ -47,13 +47,13 @@ func (f Function) Contribute(layer libcnb.Layer) (libcnb.Layer, error) {
 	return f.LayerContributor.Contribute(layer, func() (libcnb.Layer, error) {
 		if len(f.Handler) > 0 {
 			if strings.ContainsAny(f.Handler, ".") {
-				layer.LaunchEnvironment.Override("SPRING_CLOUD_FUNCTION_FUNCTION_CLASS", f.Handler)
+				layer.LaunchEnvironment.Default("SPRING_CLOUD_FUNCTION_FUNCTION_CLASS", f.Handler)
 			} else {
-				layer.LaunchEnvironment.Override("SPRING_CLOUD_FUNCTION_DEFINITION", f.Handler)
+				layer.LaunchEnvironment.Default("SPRING_CLOUD_FUNCTION_DEFINITION", f.Handler)
 			}
 		}
 
-		layer.LaunchEnvironment.Override("SPRING_CLOUD_FUNCTION_LOCATION", f.ApplicationPath)
+		layer.LaunchEnvironment.Default("SPRING_CLOUD_FUNCTION_LOCATION", f.ApplicationPath)
 
 		layer.Launch = true
 		return layer, nil

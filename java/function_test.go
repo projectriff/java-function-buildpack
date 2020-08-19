@@ -61,8 +61,8 @@ func testFunction(t *testing.T, context spec.G, it spec.S) {
 		Expect(err).NotTo(HaveOccurred())
 
 		Expect(layer.Launch).To(BeTrue())
-		Expect(layer.LaunchEnvironment["SPRING_CLOUD_FUNCTION_FUNCTION_CLASS.override"]).To(Equal("test.handler"))
-		Expect(layer.LaunchEnvironment["SPRING_CLOUD_FUNCTION_LOCATION.override"]).To(Equal(ctx.Application.Path))
+		Expect(layer.LaunchEnvironment["SPRING_CLOUD_FUNCTION_FUNCTION_CLASS.default"]).To(Equal("test.handler"))
+		Expect(layer.LaunchEnvironment["SPRING_CLOUD_FUNCTION_LOCATION.default"]).To(Equal(ctx.Application.Path))
 	})
 
 	it("contributes definition function", func() {
@@ -76,8 +76,8 @@ func testFunction(t *testing.T, context spec.G, it spec.S) {
 		Expect(err).NotTo(HaveOccurred())
 
 		Expect(layer.Launch).To(BeTrue())
-		Expect(layer.LaunchEnvironment["SPRING_CLOUD_FUNCTION_DEFINITION.override"]).To(Equal("test-handler"))
-		Expect(layer.LaunchEnvironment["SPRING_CLOUD_FUNCTION_LOCATION.override"]).To(Equal(ctx.Application.Path))
+		Expect(layer.LaunchEnvironment["SPRING_CLOUD_FUNCTION_DEFINITION.default"]).To(Equal("test-handler"))
+		Expect(layer.LaunchEnvironment["SPRING_CLOUD_FUNCTION_LOCATION.default"]).To(Equal(ctx.Application.Path))
 	})
 
 }
