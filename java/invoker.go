@@ -47,9 +47,8 @@ func (i Invoker) Contribute(layer libcnb.Layer) (libcnb.Layer, error) {
 
 		layer.LaunchEnvironment.PrependPath("CLASSPATH", layer.Path)
 
-		layer.Launch = true
 		return layer, nil
-	})
+	}, libpak.LaunchLayer)
 }
 
 func (i Invoker) Name() string {

@@ -55,9 +55,8 @@ func (f Function) Contribute(layer libcnb.Layer) (libcnb.Layer, error) {
 
 		layer.LaunchEnvironment.Default("SPRING_CLOUD_FUNCTION_LOCATION", f.ApplicationPath)
 
-		layer.Launch = true
 		return layer, nil
-	})
+	}, libpak.LaunchLayer)
 }
 
 func (Function) Name() string {
