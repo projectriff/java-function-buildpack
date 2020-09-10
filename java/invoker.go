@@ -45,7 +45,7 @@ func (i Invoker) Contribute(layer libcnb.Layer) (libcnb.Layer, error) {
 			return libcnb.Layer{}, fmt.Errorf("unable to extract %s\n%w", artifact.Name(), err)
 		}
 
-		layer.LaunchEnvironment.PrependPath("CLASSPATH", layer.Path)
+		layer.LaunchEnvironment.Prepend("CLASSPATH", string(os.PathListSeparator), layer.Path)
 
 		return layer, nil
 	}, libpak.LaunchLayer)
