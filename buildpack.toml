@@ -42,9 +42,9 @@ build       = true
 [[metadata.dependencies]]
 id      = "invoker"
 name    = "riff Java Invoker"
-version = "0.0.0"
-uri     = "placeholder"
-sha256  = "placholder"
+version = "0.2.0"
+uri     = "https://storage.googleapis.com/download/storage/v1/b/projectriff/o/java-function-invoker%2Freleases%2Fv0.2.0%2Fjava-function-invoker-0.2.0.jar?generation=1581092857305094&alt=media"
+sha256  = "7ed717ba5c18e8bfab19d4db817112b8c5d3bb7ac1e81764589724ccc644bdcd"
 stacks  = [ "heroku-18", "io.buildpacks.stacks.bionic", "org.cloudfoundry.stacks.cflinuxfs3" ]
 
   [[metadata.dependencies.licenses]]
