@@ -55,7 +55,7 @@ func testInvoker(t *testing.T, context spec.G, it spec.S) {
 		}
 		dc := libpak.DependencyCache{CachePath: "testdata"}
 
-		i := java.NewInvoker(dep, dc, &libcnb.BuildpackPlan{})
+		i, _ := java.NewInvoker(dep, dc)
 		layer, err := ctx.Layers.Layer("test-layer")
 		Expect(err).NotTo(HaveOccurred())
 
