@@ -36,8 +36,13 @@ func NewFunction(applicationPath string, handler string) (Function, error) {
 	return Function{
 		ApplicationPath: applicationPath,
 		Handler:         handler,
-		LayerContributor: libpak.NewLayerContributor(libfnbuildpack.FormatFunction("Java", handler),
-			map[string]interface{}{"handler": handler}),
+		LayerContributor: libpak.NewLayerContributor(
+			libfnbuildpack.FormatFunction("Java", handler),
+			map[string]interface{}{"handler": handler},
+			libcnb.LayerTypes{
+				Launch: true,
+			},
+		),
 	}, nil
 }
 
@@ -56,7 +61,7 @@ func (f Function) Contribute(layer libcnb.Layer) (libcnb.Layer, error) {
 		layer.LaunchEnvironment.Default("SPRING_CLOUD_FUNCTION_LOCATION", f.ApplicationPath)
 
 		return layer, nil
-	}, libpak.LaunchLayer)
+	})
 }
 
 func (Function) Name() string {
